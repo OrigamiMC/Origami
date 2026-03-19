@@ -68,8 +68,3 @@ jobs:
         run: ./gradlew :origami-api:publishMavenPublicationToFancyspacesReleasesRepository
         env:
           FANCYSPACES_API_KEY: ${{ secrets.FANCYSPACES_API_KEY }}
-
-      - name: Publish to maven snapshots repo
-        run: ./gradlew :origami-api:publishMavenPublicationToFancyspacesSnapshotsRepository
-        env:
-          FANCYSPACES_API_KEY: ${{ secrets.FANCYSPACES_API_KEY }}

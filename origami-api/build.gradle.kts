@@ -12,28 +12,7 @@ tasks {
         repositories {
             maven {
                 name = "fancyspacesReleases"
-                url = uri("https://maven.fancyspaces.net/fancyinnovations/releases")
-
-                credentials(HttpHeaderCredentials::class) {
-                    name = "Authorization"
-                    value = "ApiKey " + providers
-                        .gradleProperty("fancyspacesApiKey")
-                        .orElse(
-                            providers
-                                .environmentVariable("FANCYSPACES_API_KEY")
-                                .orElse("")
-                        )
-                        .get()
-                }
-
-                authentication {
-                    create<HttpHeaderAuthentication>("header")
-                }
-            }
-
-            maven {
-                name = "fancyspacesSnapshots"
-                url = uri("https://maven.fancyspaces.net/fancyinnovations/snapshots")
+                url = uri("https://maven.fancyspaces.net/origami/releases")
 
                 credentials(HttpHeaderCredentials::class) {
                     name = "Authorization"
@@ -52,6 +31,7 @@ tasks {
                 }
             }
         }
+
         publications {
             create<MavenPublication>("maven") {
                 groupId = project.group.toString()

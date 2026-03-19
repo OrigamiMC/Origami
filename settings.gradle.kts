@@ -1,8 +1,7 @@
 pluginManagement {
     repositories {
         mavenLocal()
-        maven(url = "https://maven.fancyspaces.net/fancyinnovations/snapshots")
-        maven(url = "https://maven.fancyspaces.net/fancyinnovations/releases")
+        maven(url = "https://maven.fancyspaces.net/origami/releases")
         gradlePluginPortal()
     }
 }
