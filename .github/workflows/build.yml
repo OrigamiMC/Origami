@@ -2,6 +2,9 @@ name: Build
 
 on:
   push:
+    paths:
+      - origami-api
+      - origami-server
   pull_request:
     types:
       - opened
