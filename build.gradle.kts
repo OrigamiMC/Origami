@@ -11,3 +11,27 @@ allprojects {
         maven(url = "https://jitpack.io")
     }
 }
+
+tasks.register("printVersion") {
+    group = "origami"
+
+    doLast {
+        print(project.version)
+    }
+}
+
+tasks.register("printChannel") {
+    group = "origami"
+
+    doLast {
+        print(project.properties["channel"])
+    }
+}
+
+tasks.register("printMinecraftVersion") {
+    group = "origami"
+
+    doLast {
+        print(project.properties["minecraftVersion"])
+    }
+}

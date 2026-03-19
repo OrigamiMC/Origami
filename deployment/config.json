@@ -1,0 +1,14 @@
+{
+  "project_name": "Origami",
+  "plugin_jar_path": "/origami-server/build/libs/Origami-%VERSION%.jar",
+  "changelog_path": "/deployment/CHANGELOG.md",
+  "version_path": "/deployment/VERSION",
+  "fancyspaces": {
+    "space_id": "D74ncT77",
+    "platform": "executable",
+    "channel": "$CHANNEL",
+    "supported_versions": [
+      "$MINECRAFT_VERSION"
+    ]
+  }
+}

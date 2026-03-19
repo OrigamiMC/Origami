@@ -3,16 +3,15 @@ plugins {
     id("com.gradleup.shadow")
 }
 
-dependencies {
-    implementation(project(":origami-api"))
-
-    implementation("org.jetbrains:annotations:26.1.0")
+sourceSets {
+    create("minecraft") { }
 }
 
-sourceSets {
-    create("minecraft") {
+dependencies {
+    implementation(project(":origami-api"))
+//    implementation(sourceSets["minecraft"].output)
 
-    }
+    implementation("org.jetbrains:annotations:26.1.0")
 }
 
 tasks {
