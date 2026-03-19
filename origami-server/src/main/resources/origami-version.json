@@ -1,0 +1,6 @@
+{
+  "channel": "$channel",
+  "version": "$version",
+  "build": "$build",
+  "commit": "$commit"
+}
