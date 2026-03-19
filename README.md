@@ -1,2 +1,3 @@
-# Origami
-Yet another Minecraft frok
+![](assets/origami-banner.png)
+
+Yet another Minecraft fork.
