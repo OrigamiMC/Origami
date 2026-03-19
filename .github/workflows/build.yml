@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '25'
+
+      - name: Modify gradlew permissions
+        run: chmod +x ./gradlew
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Build API
+        run: ./gradlew :origami-api:jar
+
+      - name: Build server
+        run: ./gradlew :origami-server:shadowJar
