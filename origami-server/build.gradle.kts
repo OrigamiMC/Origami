@@ -1,6 +1,12 @@
 plugins {
     id("java-library")
     id("com.gradleup.shadow")
+    id("com.origamimc.strata-workspace")
+}
+
+strata {
+    minecraftVersion.set("26.1-rc-2")
+    sourceDir.set(file("src/minecraft/java").absolutePath)
 }
 
 sourceSets {
