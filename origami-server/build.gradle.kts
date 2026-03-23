@@ -23,7 +23,7 @@ sourceSets {
 dependencies {
     implementation(project(":origami-api"))
 
-    implementation(fileTree(layout.buildDirectory.dir("strata-cache/server-libraries/libraries-26.1-rc-2")) {
+    implementation(fileTree(layout.buildDirectory.dir("strata-cache/server-libraries/libraries-"+project.properties["minecraftVersion"].toString())) {
         include("**/*.jar")
     })
 
