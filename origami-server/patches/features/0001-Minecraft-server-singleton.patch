@@ -1,0 +1,46 @@
+From 0b9fc83092d52b2f2db5f6b3c545258ec2068636 Mon Sep 17 00:00:00 2001
+From: Oliver <oschi1303@gmail.com>
+Date: Mon, 23 Mar 2026 20:51:16 +0100
+Subject: [PATCH 1/1] Minecraft server singleton
+
+---
+ net/minecraft/server/MinecraftServer.java | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
+index 449cc3b..2f7471b 100644
+--- a/net/minecraft/server/MinecraftServer.java
++++ b/net/minecraft/server/MinecraftServer.java
+@@ -192,6 +192,8 @@ import org.jspecify.annotations.Nullable;
+ import org.slf4j.Logger;
+ 
+ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTask> implements CommandSource, ServerInfo, ChunkIOErrorReporter {
++    @Nullable private static MinecraftServer INSTANCE; // Origami - MC Server singleton
++
+     private static final Logger LOGGER = LogUtils.getLogger();
+     public static final String VANILLA_BRAND = "vanilla";
+     private static final float AVERAGE_TICK_TIME_SMOOTHING = 0.8F;
+@@ -295,6 +297,14 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+     private final TimerQueue<MinecraftServer> scheduledEvents;
+     private final ServerClockManager clockManager;
+ 
++    // Origami start - MC Server singleton
++    public static MinecraftServer getInstance() {
++        if (INSTANCE != null) return INSTANCE;
++
++        throw new IllegalStateException("Minecraft server is not initialized yet");
++    }
++    // Origami end
++
+     public static <S extends MinecraftServer> S spin(final Function<Thread, S> factory) {
+         AtomicReference<S> serverReference = new AtomicReference<>();
+         Thread thread = new Thread(() -> serverReference.get().runServer(), "Server thread");
+@@ -322,6 +332,8 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+         final boolean propagatesCrashes
+     ) {
+         super("Server", propagatesCrashes);
++        INSTANCE = this;// Origami - MC Server singleton
++
+         this.registries = worldStem.registries();
+         if (!this.registries.compositeAccess().lookupOrThrow(Registries.LEVEL_STEM).containsKey(LevelStem.OVERWORLD)) {
+             throw new IllegalStateException("Missing Overworld dimension data");
