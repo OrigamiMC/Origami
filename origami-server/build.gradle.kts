@@ -5,7 +5,7 @@ plugins {
 }
 
 strata {
-    minecraftVersion.set("26.1-rc-2")
+    minecraftVersion.set(project.properties["minecraftVersion"].toString())
     sourceDir.set(file("src/minecraft/java").absolutePath)
 }
 
@@ -23,7 +23,13 @@ sourceSets {
 dependencies {
     implementation(project(":origami-api"))
 
+    implementation(fileTree(layout.buildDirectory.dir("strata-cache/server-libraries/libraries-26.1-rc-2")) {
+        include("**/*.jar")
+    })
+
     implementation("org.jetbrains:annotations:26.1.0")
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
+    implementation("org.checkerframework:checker-qual:3.49.0")
 }
 
 tasks {
@@ -35,6 +41,7 @@ tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
         options.release = 25
+        options.compilerArgs.addAll(listOf("-Xmaxerrs", "10000"))
     }
 
     javadoc {
