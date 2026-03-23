@@ -1,0 +1,31 @@
+From a04a76e227452a064b0656d624331edfaeff88ea Mon Sep 17 00:00:00 2001
+From: Oliver <oschi1303@gmail.com>
+Date: Mon, 23 Mar 2026 20:51:01 +0100
+Subject: [PATCH 1/2] Origami brand
+
+---
+ net/minecraft/server/MinecraftServer.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
+index 2f7471b..15bd29f 100644
+--- a/net/minecraft/server/MinecraftServer.java
++++ b/net/minecraft/server/MinecraftServer.java
+@@ -195,7 +195,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+     @Nullable private static MinecraftServer INSTANCE; // Origami - MC Server singleton
+ 
+     private static final Logger LOGGER = LogUtils.getLogger();
+-    public static final String VANILLA_BRAND = "vanilla";
++    public static final String VANILLA_BRAND = "Origami"; // Origami - origami brand
+     private static final float AVERAGE_TICK_TIME_SMOOTHING = 0.8F;
+     private static final int TICK_STATS_SPAN = 100;
+     private static final long OVERLOADED_THRESHOLD_NANOS = 20L * TimeUtil.NANOSECONDS_PER_SECOND / 20L;
+@@ -1231,7 +1231,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+     }
+ 
+     public String getServerModName() {
+-        return "vanilla";
++        return "Origami"; // Origami - origami brand
+     }
+ 
+     public ServerClockManager clockManager() {
