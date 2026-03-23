@@ -1,0 +1,12 @@
+--- a/net/minecraft/world/entity/monster/warden/Warden.java
++++ b/net/minecraft/world/entity/monster/warden/Warden.java
+@@ -514,9 +_,6 @@
+             protected PathFinder createPathFinder(final int maxVisitedNodes) {
+                 this.nodeEvaluator = new WalkNodeEvaluator();
+                 return new PathFinder(this.nodeEvaluator, maxVisitedNodes) {
+-                    {
+-                        Objects.requireNonNull(<VAR_NAMELESS_ENCLOSURE>);
+-                    }
+ 
+                     protected float distance(final Node from, final Node to) {
+                         return from.distanceToXZ(to);

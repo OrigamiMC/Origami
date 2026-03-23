@@ -1,0 +1,16 @@
+--- a/net/minecraft/network/protocol/BundlerInfo.java
++++ b/net/minecraft/network/protocol/BundlerInfo.java
+@@ -30,12 +_,7 @@
+ 
+             public BundlerInfo.@Nullable Bundler startPacketBundling(final Packet<?> packet) {
+                 return packet == delimiterPacket ? new BundlerInfo.Bundler() {
+-                    private final List<Packet<? super T>> bundlePackets;
+-
+-                    {
+-                        Objects.requireNonNull(<VAR_NAMELESS_ENCLOSURE>);
+-                        this.bundlePackets = new ArrayList<>();
+-                    }
++                    private final List<Packet<? super T>> bundlePackets = new ArrayList<>();
+ 
+                     public @Nullable Packet<?> addPacket(final Packet<?> packet) {
+                         if (packet == delimiterPacket) {

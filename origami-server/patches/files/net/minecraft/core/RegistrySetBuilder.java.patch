@@ -1,0 +1,12 @@
+--- a/net/minecraft/core/RegistrySetBuilder.java
++++ b/net/minecraft/core/RegistrySetBuilder.java
+@@ -112,9 +_,6 @@
+ 
+             public <V> RegistryOps<V> createSerializationContext(final DynamicOps<V> parent) {
+                 return RegistryOps.create(parent, new RegistryOps.RegistryInfoLookup() {
+-                    {
+-                        Objects.requireNonNull(<VAR_NAMELESS_ENCLOSURE>);
+-                    }
+ 
+                     public <T> Optional<RegistryOps.RegistryInfo<T>> lookup(final ResourceKey<? extends Registry<? extends T>> registryKey) {
+                         return getEntry(registryKey).map(Entry::opsInfo);
