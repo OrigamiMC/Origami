@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/block/state/StateDefinition.java
++++ b/net/minecraft/world/level/block/state/StateDefinition.java
+@@ -137,7 +_,7 @@
+     ) {
+         return Codec.mapPair(codec, property.valueCodec().fieldOf(name).orElseGet(var0 -> {}, () -> property.value(defaultSupplier.get())))
+             .xmap(
+-                pair -> (StateHolder)((StateHolder)pair.getFirst()).setValue(property, ((Property.Value)pair.getSecond()).value()),
++                pair -> (pair.getFirst()).setValue(property, (pair.getSecond()).value()),
+                 state -> Pair.of(state, property.value(state))
+             );
+     }

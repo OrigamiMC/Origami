@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/golem/CopperGolem.java
++++ b/net/minecraft/world/entity/animal/golem/CopperGolem.java
+@@ -151,7 +_,7 @@
+     }
+ 
+     public Brain<CopperGolem> getBrain() {
+-        return super.getBrain();
++        return (Brain<CopperGolem>) super.getBrain();
+     }
+ 
+     protected void defineSynchedData(final SynchedEntityData.Builder entityData) {

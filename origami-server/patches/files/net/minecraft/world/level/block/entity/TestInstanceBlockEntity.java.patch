@@ -1,0 +1,28 @@
+--- a/net/minecraft/world/level/block/entity/TestInstanceBlockEntity.java
++++ b/net/minecraft/world/level/block/entity/TestInstanceBlockEntity.java
+@@ -28,6 +_,7 @@
+ import net.minecraft.network.RegistryFriendlyByteBuf;
+ import net.minecraft.network.chat.Component;
+ import net.minecraft.network.chat.ComponentSerialization;
++import net.minecraft.network.chat.MutableComponent;
+ import net.minecraft.network.codec.ByteBufCodecs;
+ import net.minecraft.network.codec.StreamCodec;
+ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+@@ -107,7 +_,7 @@
+     }
+ 
+     public Component getTestName() {
+-        return this.test().map(key -> Component.literal(key.identifier().toString())).orElse(INVALID_TEST_NAME);
++        return this.test().map(key -> Component.literal(key.identifier().toString())).orElse((MutableComponent) INVALID_TEST_NAME);
+     }
+ 
+     private Optional<Holder.Reference<GameTestInstance>> getTestHolder() {
+@@ -161,7 +_,7 @@
+         input.<TestInstanceBlockEntity.Data>read("data", TestInstanceBlockEntity.Data.CODEC).ifPresent(this::set);
+         this.errorMarkers.clear();
+         this.errorMarkers
+-            .addAll(input.<List<? extends TestInstanceBlockEntity.ErrorMarker>>read("errors", TestInstanceBlockEntity.ErrorMarker.LIST_CODEC).orElse(List.of()));
++            .addAll(input.read("errors", TestInstanceBlockEntity.ErrorMarker.LIST_CODEC).orElse(List.of()));
+     }
+ 
+     protected void saveAdditional(final ValueOutput output) {

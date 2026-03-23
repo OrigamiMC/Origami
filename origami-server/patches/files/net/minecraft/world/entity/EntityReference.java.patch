@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/EntityReference.java
++++ b/net/minecraft/world/entity/EntityReference.java
+@@ -127,7 +_,7 @@
+         Optional<UUID> uuid = input.read(key, UUIDUtil.CODEC);
+         return uuid.isPresent()
+             ? of(uuid.get())
+-            : input.getString(key)
++            : (EntityReference<StoredEntityType>) input.getString(key)
+                 .map(oldName -> OldUsersConverter.convertMobOwnerIfNecessary(level.getServer(), oldName))
+                 .map(EntityReference::new)
+                 .orElse(null);

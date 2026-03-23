@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/ProblemReporter.java
++++ b/net/minecraft/util/ProblemReporter.java
+@@ -92,7 +_,7 @@
+                     entry -> " at "
+                         + (String)entry.getKey()
+                         + ": "
+-                        + ((Collection)entry.getValue()).stream().map(ProblemReporter.Problem::description).collect(Collectors.joining("; "))
++                        + (entry.getValue()).stream().map(ProblemReporter.Problem::description).collect(Collectors.joining("; "))
+                 )
+                 .collect(Collectors.joining("\n"));
+         }
