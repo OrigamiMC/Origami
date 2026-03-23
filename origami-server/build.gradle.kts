@@ -4,12 +4,30 @@ plugins {
 }
 
 sourceSets {
-    create("minecraft") { }
+    val main by getting
+
+    val minecraft by creating {
+        compileClasspath += main.output
+        runtimeClasspath += main.output
+    }
+
+    main {
+        compileClasspath += minecraft.output
+        runtimeClasspath += minecraft.output
+    }
+}
+
+configurations {
+    named("minecraftImplementation") {
+        extendsFrom(configurations.implementation.get())
+    }
+    named("minecraftCompileOnly") {
+        extendsFrom(configurations.compileOnly.get())
+    }
 }
 
 dependencies {
     implementation(project(":origami-api"))
-//    implementation(sourceSets["minecraft"].output)
 
     implementation("org.jetbrains:annotations:26.1.0")
 }
