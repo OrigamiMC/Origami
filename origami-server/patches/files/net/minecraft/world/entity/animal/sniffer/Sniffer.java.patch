@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/sniffer/Sniffer.java
++++ b/net/minecraft/world/entity/animal/sniffer/Sniffer.java
+@@ -423,7 +_,7 @@
+     }
+ 
+     public Brain<Sniffer> getBrain() {
+-        return super.getBrain();
++        return (Brain<Sniffer>) super.getBrain();
+     }
+ 
+     protected void customServerAiStep(final ServerLevel level) {

@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/VillagerDataFix.java
++++ b/net/minecraft/util/datafix/fixes/VillagerDataFix.java
+@@ -28,7 +_,7 @@
+                             remainder.createString("profession"),
+                             remainder.createString(upgradeData(remainder.get("Profession").asInt(0), remainder.get("Career").asInt(0))),
+                             remainder.createString("level"),
+-                            (Dynamic)DataFixUtils.orElse(remainder.get("CareerLevel").result(), remainder.createInt(1))
++                            DataFixUtils.orElse(remainder.get("CareerLevel").result(), remainder.createInt(1))
+                         )
+                     )
+                 )

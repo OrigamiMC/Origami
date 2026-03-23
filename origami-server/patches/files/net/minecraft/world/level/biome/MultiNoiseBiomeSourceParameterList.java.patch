@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/biome/MultiNoiseBiomeSourceParameterList.java
++++ b/net/minecraft/world/level/biome/MultiNoiseBiomeSourceParameterList.java
+@@ -76,7 +_,7 @@
+         public static final Codec<MultiNoiseBiomeSourceParameterList.Preset> CODEC = Identifier.CODEC
+             .flatXmap(
+                 name -> Optional.ofNullable(BY_NAME.get(name))
+-                    .<DataResult>map(DataResult::success)
++                    .map(DataResult::success)
+                     .orElseGet(() -> DataResult.error(() -> "Unknown preset: " + name)),
+                 p -> DataResult.success(p.id)
+             );

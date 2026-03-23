@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/wolf/Wolf.java
++++ b/net/minecraft/world/entity/animal/wolf/Wolf.java
+@@ -235,7 +_,7 @@
+         VariantUtils.readVariant(input, Registries.WOLF_VARIANT).ifPresent(this::setVariant);
+         this.setCollarColor(input.<DyeColor>read("CollarColor", DyeColor.LEGACY_ID_CODEC).orElse(DEFAULT_COLLAR_COLOR));
+         this.readPersistentAngerSaveData(this.level(), input);
+-        input.<ResourceKey>read("sound_variant", ResourceKey.codec(Registries.WOLF_SOUND_VARIANT))
++        input.read("sound_variant", ResourceKey.codec(Registries.WOLF_SOUND_VARIANT))
+             .flatMap(soundVariant -> this.registryAccess().lookupOrThrow(Registries.WOLF_SOUND_VARIANT).get((ResourceKey<WolfSoundVariant>)soundVariant))
+             .ifPresent(this::setSoundVariant);
+     }

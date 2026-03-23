@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/ItemStackComponentizationFix.java
++++ b/net/minecraft/util/datafix/fixes/ItemStackComponentizationFix.java
+@@ -390,7 +_,7 @@
+                         oldPredicate.get()
+                             .asStream()
+                             .map(
+-                                value -> (Dynamic)DataFixUtils.orElse(
++                                value -> DataFixUtils.orElse(
+                                     value.asString().map(string -> fixBlockStatePredicate((Dynamic<?>)value, string)).result(), value
+                                 )
+                             )

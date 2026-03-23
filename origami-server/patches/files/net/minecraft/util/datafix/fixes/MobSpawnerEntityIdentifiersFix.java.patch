@@ -1,0 +1,19 @@
+--- a/net/minecraft/util/datafix/fixes/MobSpawnerEntityIdentifiersFix.java
++++ b/net/minecraft/util/datafix/fixes/MobSpawnerEntityIdentifiersFix.java
+@@ -40,13 +_,13 @@
+                                 spawnPotential -> {
+                                     Optional<String> type = spawnPotential.get("Type").asString().result();
+                                     if (type.isPresent()) {
+-                                        Dynamic<?> spawnData = ((Dynamic)DataFixUtils.orElse(
++                                        Dynamic<?> spawnData = DataFixUtils.orElse(
+                                                 spawnPotential.get("Properties").result(), spawnPotential.emptyMap()
+-                                            ))
++                                            )
+                                             .set("id", spawnPotential.createString(type.get()));
+                                         return spawnPotential.set("Entity", spawnData).remove("Type").remove("Properties");
+                                     } else {
+-                                        return (Dynamic)spawnPotential;
++                                        return spawnPotential;
+                                     }
+                                 }
+                             )

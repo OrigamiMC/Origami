@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/SpawnerDataFix.java
++++ b/net/minecraft/util/datafix/fixes/SpawnerDataFix.java
+@@ -46,7 +_,7 @@
+         List<?> entries = (List<?>)spawnPotentials.getValue();
+         List<?> wrappedEntries = entries.stream().map(o -> {
+             Pair<Object, Dynamic<?>> entry = (Pair<Object, Dynamic<?>>)o;
+-            int weight = ((Dynamic)entry.getSecond()).get("Weight").asNumber().result().orElse(1).intValue();
++            int weight = (entry.getSecond()).get("Weight").asNumber().result().orElse(1).intValue();
+             Dynamic<?> newEntryRemainder = new Dynamic(ops);
+             newEntryRemainder = newEntryRemainder.set("weight", newEntryRemainder.createInt(weight));
+             Dynamic<?> newInnerRemainder = ((Dynamic)entry.getSecond()).remove("Weight").remove("Entity");

@@ -9,3 +9,12 @@
          );
  
      static MapCodec<DataComponentPredicate.Single<?>> singleCodec(final String name) {
+@@ -112,7 +_,7 @@
+         public TypeBase(final Codec<T> codec) {
+             this.codec = codec;
+             this.wrappedCodec = DataComponentPredicate.Single.wrapCodec(this, codec);
+-            this.singleStreamCodec = ByteBufCodecs.<DataComponentPredicate>fromCodecWithRegistries(codec)
++            this.singleStreamCodec = ByteBufCodecs.<DataComponentPredicate>fromCodecWithRegistries((Codec<DataComponentPredicate>) codec)
+                 .map(v -> new DataComponentPredicate.Single<>(this, (T)v), DataComponentPredicate.Single::predicate);
+         }
+ 

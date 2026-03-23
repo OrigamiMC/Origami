@@ -1,0 +1,17 @@
+--- a/net/minecraft/util/datafix/fixes/GossipUUIDFix.java
++++ b/net/minecraft/util/datafix/fixes/GossipUUIDFix.java
+@@ -16,12 +_,12 @@
+             DSL.remainderFinder(),
+             tag -> tag.update(
+                 "Gossips",
+-                gossips -> (Dynamic)DataFixUtils.orElse(
++                gossips -> DataFixUtils.orElse(
+                     gossips.asStreamOpt()
+                         .result()
+                         .map(
+                             s -> s.map(
+-                                gossip -> (Dynamic)AbstractUUIDFix.replaceUUIDLeastMost((Dynamic<?>)gossip, "Target", "Target").orElse((Dynamic<?>)gossip)
++                                gossip -> AbstractUUIDFix.replaceUUIDLeastMost((Dynamic<?>)gossip, "Target", "Target").orElse((Dynamic<?>)gossip)
+                             )
+                         )
+                         .map(gossips::createList),

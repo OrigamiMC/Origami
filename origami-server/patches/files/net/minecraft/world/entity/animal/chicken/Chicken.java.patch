@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/chicken/Chicken.java
++++ b/net/minecraft/world/entity/animal/chicken/Chicken.java
+@@ -195,7 +_,7 @@
+         this.isChickenJockey = input.getBooleanOr("IsChickenJockey", false);
+         input.getInt("EggLayTime").ifPresent(time -> this.eggTime = time);
+         VariantUtils.readVariant(input, Registries.CHICKEN_VARIANT).ifPresent(this::setVariant);
+-        input.<ResourceKey>read("sound_variant", ResourceKey.codec(Registries.CHICKEN_SOUND_VARIANT))
++        input.read("sound_variant", ResourceKey.codec(Registries.CHICKEN_SOUND_VARIANT))
+             .flatMap(soundVariant -> this.registryAccess().lookupOrThrow(Registries.CHICKEN_SOUND_VARIANT).get((ResourceKey<ChickenSoundVariant>)soundVariant))
+             .ifPresent(this::setSoundVariant);
+     }

@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/ItemStackUUIDFix.java
++++ b/net/minecraft/util/datafix/fixes/ItemStackUUIDFix.java
+@@ -32,7 +_,7 @@
+         return tag.update(
+             "AttributeModifiers",
+             modifiers -> tag.createList(
+-                modifiers.asStream().map(modifier -> (Dynamic)replaceUUIDLeastMost((Dynamic<?>)modifier, "UUID", "UUID").orElse((Dynamic<?>)modifier))
++                modifiers.asStream().map(modifier -> replaceUUIDLeastMost((Dynamic<?>)modifier, "UUID", "UUID").orElse((Dynamic<?>)modifier))
+             )
+         );
+     }

@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/axolotl/Axolotl.java
++++ b/net/minecraft/world/entity/animal/axolotl/Axolotl.java
+@@ -493,7 +_,7 @@
+     }
+ 
+     public Brain<Axolotl> getBrain() {
+-        return super.getBrain();
++        return (Brain<Axolotl>) super.getBrain();
+     }
+ 
+     protected void travelInWater(final Vec3 input, final double baseGravity, final boolean isFalling, final double oldY) {

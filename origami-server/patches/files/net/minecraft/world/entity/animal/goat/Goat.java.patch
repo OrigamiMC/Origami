@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/goat/Goat.java
++++ b/net/minecraft/world/entity/animal/goat/Goat.java
+@@ -152,7 +_,7 @@
+     }
+ 
+     public Brain<Goat> getBrain() {
+-        return super.getBrain();
++        return (Brain<Goat>) super.getBrain();
+     }
+ 
+     protected void customServerAiStep(final ServerLevel level) {

@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/entity/animal/happyghast/HappyGhast.java
++++ b/net/minecraft/world/entity/animal/happyghast/HappyGhast.java
+@@ -352,7 +_,7 @@
+     }
+ 
+     public Brain<HappyGhast> getBrain() {
+-        return super.getBrain();
++        return (Brain<HappyGhast>) super.getBrain();
+     }
+ 
+     protected void customServerAiStep(final ServerLevel level) {

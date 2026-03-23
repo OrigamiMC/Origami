@@ -1,0 +1,20 @@
+--- a/net/minecraft/world/entity/animal/fox/Fox.java
++++ b/net/minecraft/world/entity/animal/fox/Fox.java
+@@ -129,7 +_,7 @@
+     private static final Predicate<Entity> AVOID_PLAYERS = entity -> !entity.isDiscrete() && EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(entity);
+     private static final int MIN_TICKS_BEFORE_EAT = 600;
+     private static final EntityDimensions BABY_DIMENSIONS = EntityType.FOX.getDimensions().scale(0.6F).withEyeHeight(0.2975F);
+-    private static final Codec<List<EntityReference<LivingEntity>>> TRUSTED_LIST_CODEC = EntityReference.codec().listOf();
++    private static final Codec<List<EntityReference<LivingEntity>>> TRUSTED_LIST_CODEC = EntityReference.<LivingEntity>codec().listOf();
+     private static final boolean DEFAULT_SLEEPING = false;
+     private static final boolean DEFAULT_SITTING = false;
+     private static final boolean DEFAULT_CROUCHING = false;
+@@ -427,7 +_,7 @@
+     protected void readAdditionalSaveData(final ValueInput input) {
+         super.readAdditionalSaveData(input);
+         this.clearTrusted();
+-        input.<List>read("Trusted", TRUSTED_LIST_CODEC).orElse(List.of()).forEach(this::addTrustedEntity);
++        input.read("Trusted", TRUSTED_LIST_CODEC).orElse(List.of()).forEach(this::addTrustedEntity);
+         this.setSleeping(input.getBooleanOr("Sleeping", false));
+         this.setVariant(input.<Fox.Variant>read("Type", Fox.Variant.CODEC).orElse(Fox.Variant.DEFAULT));
+         this.setSitting(input.getBooleanOr("Sitting", false));

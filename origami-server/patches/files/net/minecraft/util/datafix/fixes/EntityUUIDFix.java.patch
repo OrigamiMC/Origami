@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/EntityUUIDFix.java
++++ b/net/minecraft/util/datafix/fixes/EntityUUIDFix.java
+@@ -101,7 +_,7 @@
+     private static Dynamic<?> updateFox(final Dynamic<?> tag) {
+         Optional<Dynamic<?>> trustedUUIDs = tag.get("TrustedUUIDs")
+             .result()
+-            .map(uuidTags -> tag.createList(uuidTags.asStream().map(uuidTag -> (Dynamic)createUUIDFromML((Dynamic<?>)uuidTag).orElseGet(() -> {
++            .map(uuidTags -> tag.createList(uuidTags.asStream().map(uuidTag -> createUUIDFromML((Dynamic<?>)uuidTag).orElseGet(() -> {
+                 LOGGER.warn("Trusted contained invalid data.");
+                 return (Dynamic<?>)uuidTag;
+             }))));

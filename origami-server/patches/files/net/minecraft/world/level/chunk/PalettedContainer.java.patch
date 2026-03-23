@@ -9,3 +9,12 @@
                  i -> i.group(
                          elementCodec.mapResult(ExtraCodecs.orElsePartial(defaultValue))
                              .listOf()
+@@ -59,7 +_,7 @@
+                     )
+                     .apply(i, PalettedContainerRO.PackedData::new)
+             )
+-            .comapFlatMap(discData -> unpacker.read(strategy, discData), palettedContainer -> palettedContainer.pack(strategy));
++            .comapFlatMap(discData -> unpacker.read(strategy, (PalettedContainerRO.PackedData<T>)discData), palettedContainer -> palettedContainer.pack(strategy));
+     }
+ 
+     private PalettedContainer(final Strategy<T> strategy, final Configuration dataConfiguration, final BitStorage storage, final Palette<T> palette) {
