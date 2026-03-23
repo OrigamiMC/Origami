@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/structure/structures/MineshaftPieces.java
++++ b/net/minecraft/world/level/levelgen/structure/structures/MineshaftPieces.java
+@@ -1096,7 +_,7 @@
+ 
+         public MineShaftRoom(final CompoundTag tag) {
+             super(StructurePieceType.MINE_SHAFT_ROOM, tag);
+-            this.childEntranceBoxes.addAll(tag.<List<? extends BoundingBox>>read("Entrances", BoundingBox.CODEC.listOf()).orElse(List.of()));
++            this.childEntranceBoxes.addAll(tag.read("Entrances", BoundingBox.CODEC.listOf()).orElse(List.of()));
+         }
+ 
+         public void addChildren(final StructurePiece startPiece, final StructurePieceAccessor structurePieceAccessor, final RandomSource random) {

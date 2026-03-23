@@ -1,0 +1,22 @@
+--- a/net/minecraft/world/entity/animal/goat/GoatAi.java
++++ b/net/minecraft/world/entity/animal/goat/GoatAi.java
+@@ -72,8 +_,8 @@
+             Activity.CORE,
+             0,
+             ImmutableList.of(
+-                new Swim(0.8F),
+-                new AnimalPanic(2.0F),
++                new Swim<>(0.8F),
++                new AnimalPanic<>(2.0F),
+                 new LookAtTargetSink(45, 90),
+                 new MoveToTargetSink(),
+                 new CountDownCooldownTicks(MemoryModuleType.TEMPTATION_COOLDOWN_TICKS),
+@@ -93,7 +_,7 @@
+                 Pair.of(2, BabyFollowAdult.create(ADULT_FOLLOW_RANGE, 1.25F)),
+                 Pair.of(
+                     3,
+-                    new RunOne(
++                    new RunOne<>(
+                         ImmutableList.of(
+                             Pair.of(RandomStroll.stroll(1.0F), 2), Pair.of(SetWalkTargetFromLookTarget.create(1.0F, 3), 2), Pair.of(new DoNothing(30, 60), 1)
+                         )

@@ -1,0 +1,11 @@
+--- a/net/minecraft/data/DataProvider.java
++++ b/net/minecraft/data/DataProvider.java
+@@ -46,7 +_,7 @@
+     }
+ 
+     static <T, E> CompletableFuture<?> saveAll(final CachedOutput cache, final Codec<E> codec, final Function<T, Path> pathGetter, final Map<T, E> contents) {
+-        return saveAll(cache, (Function<Object, JsonElement>)(e -> (JsonElement)codec.encodeStart(JsonOps.INSTANCE, e).getOrThrow()), pathGetter, contents);
++        return saveAll(cache, (e -> codec.encodeStart(JsonOps.INSTANCE, e).getOrThrow()), pathGetter, contents);
+     }
+ 
+     static <T, E> CompletableFuture<?> saveAll(

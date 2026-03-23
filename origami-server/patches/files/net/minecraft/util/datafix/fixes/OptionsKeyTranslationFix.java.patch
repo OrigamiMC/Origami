@@ -1,0 +1,23 @@
+--- a/net/minecraft/util/datafix/fixes/OptionsKeyTranslationFix.java
++++ b/net/minecraft/util/datafix/fixes/OptionsKeyTranslationFix.java
+@@ -18,15 +_,15 @@
+             "OptionsKeyTranslationFix",
+             this.getInputSchema().getType(References.OPTIONS),
+             input -> input.update(DSL.remainderFinder(), tag -> tag.getMapValues().map(map1 -> tag.createMap(map1.entrySet().stream().map(entry -> {
+-                if (((Dynamic)entry.getKey()).asString("").startsWith("key_")) {
+-                    String oldValue = ((Dynamic)entry.getValue()).asString("");
++                if ((entry.getKey()).asString("").startsWith("key_")) {
++                    String oldValue = (entry.getValue()).asString("");
+                     if (!oldValue.startsWith("key.mouse") && !oldValue.startsWith("scancode.")) {
+-                        return Pair.of((Dynamic)entry.getKey(), tag.createString("key.keyboard." + oldValue.substring("key.".length())));
++                        return Pair.of(entry.getKey(), tag.createString("key.keyboard." + oldValue.substring("key.".length())));
+                     }
+                 }
+ 
+-                return Pair.of((Dynamic)entry.getKey(), (Dynamic)entry.getValue());
+-            }).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)))).result().orElse(tag))
++                return Pair.of(entry.getKey(), entry.getValue());
++            }).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)))).result().orElse((Dynamic) tag))
+         );
+     }
+ }

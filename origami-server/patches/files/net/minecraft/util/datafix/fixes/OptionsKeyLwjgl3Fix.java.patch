@@ -1,0 +1,34 @@
+--- a/net/minecraft/util/datafix/fixes/OptionsKeyLwjgl3Fix.java
++++ b/net/minecraft/util/datafix/fixes/OptionsKeyLwjgl3Fix.java
+@@ -137,8 +_,8 @@
+             "OptionsKeyLwjgl3Fix",
+             this.getInputSchema().getType(References.OPTIONS),
+             input -> input.update(DSL.remainderFinder(), tag -> tag.getMapValues().map(map1 -> tag.createMap(map1.entrySet().stream().map(entry -> {
+-                if (((Dynamic)entry.getKey()).asString("").startsWith("key_")) {
+-                    int oldValue = Integer.parseInt(((Dynamic)entry.getValue()).asString(""));
++                if (entry.getKey().asString("").startsWith("key_")) {
++                    int oldValue = Integer.parseInt(entry.getValue().asString(""));
+                     if (oldValue < 0) {
+                         int button = oldValue + 100;
+                         String name;
+@@ -152,15 +_,15 @@
+                             name = "key.mouse." + (button + 1);
+                         }
+ 
+-                        return Pair.of((Dynamic)entry.getKey(), ((Dynamic)entry.getValue()).createString(name));
++                        return Pair.of(entry.getKey(), entry.getValue().createString(name));
+                     } else {
+-                        String name = (String)MAP.getOrDefault(oldValue, "key.unknown");
+-                        return Pair.of((Dynamic)entry.getKey(), ((Dynamic)entry.getValue()).createString(name));
++                        String name = MAP.getOrDefault(oldValue, "key.unknown");
++                        return Pair.of(entry.getKey(), entry.getValue().createString(name));
+                     }
+                 } else {
+-                    return Pair.of((Dynamic)entry.getKey(), (Dynamic)entry.getValue());
++                    return Pair.of(entry.getKey(), entry.getValue());
+                 }
+-            }).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)))).result().orElse(tag))
++            }).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)))).result().orElse((Dynamic) tag))
+         );
+     }
+ }

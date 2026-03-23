@@ -1,0 +1,13 @@
+--- a/net/minecraft/world/level/storage/loot/predicates/EnvironmentAttributeCheck.java
++++ b/net/minecraft/world/level/storage/loot/predicates/EnvironmentAttributeCheck.java
+@@ -18,8 +_,8 @@
+             .xmap(value -> new EnvironmentAttributeCheck<>(attribute, (Value)value), EnvironmentAttributeCheck::value);
+     }
+ 
+-    public MapCodec<EnvironmentAttributeCheck<Value>> codec() {
+-        return (MapCodec<EnvironmentAttributeCheck<Value>>)MAP_CODEC;
++    public MapCodec<EnvironmentAttributeCheck<?>> codec() {
++        return MAP_CODEC;
+     }
+ 
+     public Set<ContextKey<?>> getReferencedContextParams() {

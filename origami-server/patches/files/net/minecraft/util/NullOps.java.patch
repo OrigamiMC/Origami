@@ -1,0 +1,20 @@
+--- a/net/minecraft/util/NullOps.java
++++ b/net/minecraft/util/NullOps.java
+@@ -125,7 +_,7 @@
+     }
+ 
+     public DataResult<Consumer<BiConsumer<Unit, Unit>>> getMapEntries(final Unit input) {
+-        return DataResult.success((Consumer<BiConsumer>)consumer -> {});
++        return DataResult.success(consumer -> {});
+     }
+ 
+     public DataResult<MapLike<Unit>> getMap(final Unit input) {
+@@ -137,7 +_,7 @@
+     }
+ 
+     public DataResult<Consumer<Consumer<Unit>>> getList(final Unit input) {
+-        return DataResult.success((Consumer<Consumer>)consumer -> {});
++        return DataResult.success(consumer -> {});
+     }
+ 
+     public DataResult<ByteBuffer> getByteBuffer(final Unit input) {

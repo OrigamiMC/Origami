@@ -9,3 +9,12 @@
                  LOGGER.warn("Trusted contained invalid data.");
                  return (Dynamic<?>)uuidTag;
              }))));
+@@ -136,7 +_,7 @@
+                             "Modifiers",
+                             modifiers -> attribute.createList(
+                                 modifiers.asStream()
+-                                    .map(modifier -> (Dynamic)replaceUUIDLeastMost((Dynamic<?>)modifier, "UUID", "UUID").orElse((Dynamic<?>)modifier))
++                                    .map(modifier -> replaceUUIDLeastMost((Dynamic<?>)modifier, "UUID", "UUID").orElse((Dynamic<?>)modifier))
+                             )
+                         )
+                     )

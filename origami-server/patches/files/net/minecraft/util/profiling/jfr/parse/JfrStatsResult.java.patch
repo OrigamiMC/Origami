@@ -1,0 +1,14 @@
+--- a/net/minecraft/util/profiling/jfr/parse/JfrStatsResult.java
++++ b/net/minecraft/util/profiling/jfr/parse/JfrStatsResult.java
+@@ -49,9 +_,9 @@
+             .stream()
+             .map(e -> Pair.of(e.getKey(), TimedStatSummary.summary(e.getValue())))
+             .filter(pair -> ((Optional)pair.getSecond()).isPresent())
+-            .map(e -> Pair.of((ChunkStatus)e.getFirst(), (TimedStatSummary)((Optional)e.getSecond()).get()))
++            .map(e -> Pair.of((ChunkStatus)e.getFirst(), (e.getSecond()).get()))
+             .sorted(
+-                Comparator.<Pair<ChunkStatus, TimedStatSummary<ChunkGenStat>>, Duration>comparing(pair -> ((TimedStatSummary)pair.getSecond()).totalDuration())
++                Comparator.<Pair<ChunkStatus, TimedStatSummary<ChunkGenStat>>, Duration>comparing(pair -> (pair.getSecond()).totalDuration())
+                     .reversed()
+             )
+             .toList();

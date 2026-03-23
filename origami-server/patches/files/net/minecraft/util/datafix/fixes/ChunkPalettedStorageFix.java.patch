@@ -36,3 +36,29 @@
              for (int i = 0; i < 26; i++) {
                  map.put("true" + i, ExtraDataFixUtils.blockState("minecraft:note_block", Map.of("powered", "true", "note", String.valueOf(i))));
                  map.put("false" + i, ExtraDataFixUtils.blockState("minecraft:note_block", Map.of("powered", "false", "note", String.valueOf(i))));
+@@ -260,7 +_,7 @@
+             map.put(14, "red");
+             map.put(15, "black");
+         });
+-        private static final Map<String, Dynamic<?>> BED_BLOCK_MAP = (Map<String, Dynamic<?>>)DataFixUtils.make(Maps.newHashMap(), map -> {
++        private static final Map<String, Dynamic<?>> BED_BLOCK_MAP = DataFixUtils.make(Maps.newHashMap(), map -> {
+             Iterator i$ = DYE_COLOR_MAP.int2ObjectEntrySet().iterator();
+ 
+             while (i$.hasNext()) {
+@@ -270,13 +_,10 @@
+                 }
+             }
+         });
+-        private static final Map<String, Dynamic<?>> BANNER_BLOCK_MAP = (Map<String, Dynamic<?>>)DataFixUtils.make(Maps.newHashMap(), map -> {
+-            Iterator i$ = DYE_COLOR_MAP.int2ObjectEntrySet().iterator();
+-
+-            while (i$.hasNext()) {
+-                Entry<String> entry = (Entry<String>)i$.next();
++        private static final Map<String, Dynamic<?>> BANNER_BLOCK_MAP = DataFixUtils.make(Maps.newHashMap(), map -> {
++            for (Entry<String> entry : DYE_COLOR_MAP.int2ObjectEntrySet()) {
+                 if (!Objects.equals(entry.getValue(), "white")) {
+-                    addBanners(map, 15 - entry.getIntKey(), (String)entry.getValue());
++                    addBanners(map, 15 - entry.getIntKey(), entry.getValue());
+                 }
+             }
+         });
