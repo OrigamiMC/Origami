@@ -10,25 +10,13 @@ strata {
 }
 
 sourceSets {
-    val main by getting
-
-    val minecraft by creating {
-        compileClasspath += main.output
-        runtimeClasspath += main.output
-    }
-
     main {
-        compileClasspath += minecraft.output
-        runtimeClasspath += minecraft.output
-    }
-}
-
-configurations {
-    named("minecraftImplementation") {
-        extendsFrom(configurations.implementation.get())
-    }
-    named("minecraftCompileOnly") {
-        extendsFrom(configurations.compileOnly.get())
+        java {
+            srcDirs(layout.projectDirectory.dir("src/minecraft/java"))
+        }
+        resources {
+            srcDirs(layout.projectDirectory.dir("src/minecraft/resources"))
+        }
     }
 }
 
