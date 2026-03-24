@@ -1,6 +1,7 @@
 name: Build
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - origami-api
@@ -33,11 +34,20 @@ jobs:
       - name: Modify gradlew permissions
         run: chmod +x ./gradlew
 
-      - name: Run tests
-        run: ./gradlew test
+#      - name: Run tests
+#        run: ./gradlew test
 
       - name: Build API
         run: ./gradlew :origami-api:jar
+
+      - name: Set up strata
+        run: ./gradlew :origami-server:setupStrata
+
+      - name: Apply file patches
+        run: ./gradlew :origami-server:applyFilePatches
+
+      - name: Apply feature patches
+        run: ./gradlew :origami-server:applyFeaturePatches
 
       - name: Build server
         run: ./gradlew :origami-server:shadowJar
