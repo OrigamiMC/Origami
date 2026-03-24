@@ -1,26 +1,26 @@
-From a04a76e227452a064b0656d624331edfaeff88ea Mon Sep 17 00:00:00 2001
+From 1d4a918451ed52fa1cc382a9190f374fcf0914f0 Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Mon, 23 Mar 2026 20:51:01 +0100
-Subject: [PATCH 1/2] Origami brand
+Subject: [PATCH 1/3] Origami brand
 
 ---
  net/minecraft/server/MinecraftServer.java | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
-index 2f7471b..15bd29f 100644
+index 449cc3b..5cce15d 100644
 --- a/net/minecraft/server/MinecraftServer.java
 +++ b/net/minecraft/server/MinecraftServer.java
-@@ -195,7 +195,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
-     @Nullable private static MinecraftServer INSTANCE; // Origami - MC Server singleton
+@@ -193,7 +193,7 @@ import org.slf4j.Logger;
  
+ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTask> implements CommandSource, ServerInfo, ChunkIOErrorReporter {
      private static final Logger LOGGER = LogUtils.getLogger();
 -    public static final String VANILLA_BRAND = "vanilla";
 +    public static final String VANILLA_BRAND = "Origami"; // Origami - origami brand
      private static final float AVERAGE_TICK_TIME_SMOOTHING = 0.8F;
      private static final int TICK_STATS_SPAN = 100;
      private static final long OVERLOADED_THRESHOLD_NANOS = 20L * TimeUtil.NANOSECONDS_PER_SECOND / 20L;
-@@ -1231,7 +1231,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1219,7 +1219,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
      }
  
      public String getServerModName() {

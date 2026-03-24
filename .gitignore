@@ -1,6 +1,9 @@
 # minecraft source
 origami-server/src/minecraft
 
+# run server
+origami-server/run
+
 # gralde
 .gradle
 **/build/

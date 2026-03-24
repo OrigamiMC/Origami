@@ -1,14 +1,14 @@
-From 1b78bcb31bf1ad974c2d0356042c9fbb54600477 Mon Sep 17 00:00:00 2001
+From 780daac093dd68a7894d456eb322876f04844279 Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Mon, 23 Mar 2026 20:57:16 +0100
-Subject: [PATCH 2/2] Minecraft server singleton
+Subject: [PATCH 2/3] Minecraft server singleton
 
 ---
  net/minecraft/server/MinecraftServer.java | 12 ++++++++++++
  1 file changed, 12 insertions(+)
 
 diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
-index 449cc3b..2f7471b 100644
+index 5cce15d..15bd29f 100644
 --- a/net/minecraft/server/MinecraftServer.java
 +++ b/net/minecraft/server/MinecraftServer.java
 @@ -192,6 +192,8 @@ import org.jspecify.annotations.Nullable;
@@ -18,7 +18,7 @@ index 449cc3b..2f7471b 100644
 +    @Nullable private static MinecraftServer INSTANCE; // Origami - MC Server singleton
 +
      private static final Logger LOGGER = LogUtils.getLogger();
-     public static final String VANILLA_BRAND = "vanilla";
+     public static final String VANILLA_BRAND = "Origami"; // Origami - origami brand
      private static final float AVERAGE_TICK_TIME_SMOOTHING = 0.8F;
 @@ -295,6 +297,14 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
      private final TimerQueue<MinecraftServer> scheduledEvents;

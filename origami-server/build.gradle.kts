@@ -33,6 +33,12 @@ dependencies {
 }
 
 tasks {
+    jar {
+        manifest {
+            attributes["Main-Class"] = "net.minecraft.server.Main"
+        }
+    }
+
     shadowJar {
         archiveClassifier.set("")
         archiveBaseName.set("Origami")
