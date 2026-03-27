@@ -27,6 +27,10 @@ dependencies {
         include("**/*.jar")
     })
 
+    implementation("de.oliver.FancyAnalytics:logger:0.0.10")
+    implementation("de.oliver.FancyAnalytics:java-sdk:0.0.6")
+    implementation("com.fancyinnovations.fancyspaces:java-sdk:0.0.4")
+
     implementation("org.jetbrains:annotations:26.1.0")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("org.checkerframework:checker-qual:3.49.0")
