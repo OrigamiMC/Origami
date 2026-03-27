@@ -1,26 +1,32 @@
 package com.origamimc.origami;
 
+import com.origamimc.origami.api.Origami;
+
 public class OrigamiServerImpl {
 
     /**
      * Called right when the server boots up
      */
     public void onBoot() {
-        System.out.println("BOOTING SERVER ...");
+        Origami.logger().info("Booting Origami ...");
+
+        Origami.logger().info("Successfully booted Origami");
     }
 
     /**
      * Called before worlds are being loaded
      */
     public void onPrepareLevels() {
-        System.out.println("PREPARING LEVELS ...");
+
     }
 
     /**
      * Called when server is started
      */
     public void onServerStarted() {
-        System.out.println("STARTED SERVER ...");
+        Origami.logger().info("Starting Origami ...");
+
+        Origami.logger().info("Successfully started Origami");
     }
 
 }
