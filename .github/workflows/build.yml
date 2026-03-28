@@ -3,9 +3,6 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    paths:
-      - origami-api
-      - origami-server
   pull_request:
     types:
       - opened
@@ -54,5 +51,11 @@ jobs:
       - name: Apply feature patches
         run: ./gradlew :origami-server:applyFeaturePatches
 
-      - name: Build server
+      - name: Build server jar
+        run: ./gradlew :origami-server:jar
+
+      - name: Build server bundle
         run: ./gradlew :origami-server:shadowJar
+
+      - name: Create server jar patch
+        run: ./gradlew :origami-server:createServerJarPatch

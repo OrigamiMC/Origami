@@ -45,7 +45,7 @@ tasks {
 
     shadowJar {
         archiveClassifier.set("")
-        archiveBaseName.set("Origami")
+        archiveBaseName.set("origami-bundle")
     }
 
     compileJava {
