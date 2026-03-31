@@ -1,6 +1,8 @@
 package com.origamimc.origami;
 
 import com.origamimc.origami.api.Origami;
+import com.origamimc.origami.api.plugins.PluginService;
+import com.origamimc.origami.plugins.PluginServiceImpl;
 import de.oliver.fancyanalytics.logger.ExtendedFancyLogger;
 import de.oliver.fancyanalytics.logger.LogLevel;
 import de.oliver.fancyanalytics.logger.appender.ConsoleAppender;
@@ -15,6 +17,7 @@ public class OrigamiImpl implements Origami {
 
     private final ExtendedFancyLogger logger;
     private final OrigamiServerImpl server;
+    private final PluginServiceImpl pluginService;
 
     public static OrigamiImpl get() {
         return (OrigamiImpl) Origami.get();
@@ -42,12 +45,17 @@ public class OrigamiImpl implements Origami {
         );
 
         this.server = new OrigamiServerImpl();
+        this.pluginService = new PluginServiceImpl();
     }
-
 
     @Override
     public ExtendedFancyLogger getLogger() {
         return logger;
+    }
+
+    @Override
+    public PluginService getPluginService() {
+        return pluginService;
     }
 
     public OrigamiServerImpl getServer() {

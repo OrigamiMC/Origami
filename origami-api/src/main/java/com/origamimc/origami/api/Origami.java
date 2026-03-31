@@ -1,5 +1,6 @@
 package com.origamimc.origami.api;
 
+import com.origamimc.origami.api.plugins.PluginService;
 import de.oliver.fancyanalytics.logger.ExtendedFancyLogger;
 
 public interface Origami {
@@ -13,5 +14,7 @@ public interface Origami {
     }
 
     ExtendedFancyLogger getLogger();
+
+    PluginService getPluginService();
 
 }

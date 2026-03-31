@@ -1,6 +1,7 @@
 package com.origamimc.origami;
 
 import com.origamimc.origami.api.Origami;
+import com.origamimc.origami.plugins.PluginServiceImpl;
 
 public class OrigamiServerImpl {
 
@@ -17,7 +18,7 @@ public class OrigamiServerImpl {
      * Called before worlds are being loaded
      */
     public void onPrepareLevels() {
-
+        PluginServiceImpl.get().loadFromPluginsFolder();
     }
 
     /**
@@ -25,6 +26,8 @@ public class OrigamiServerImpl {
      */
     public void onServerStarted() {
         Origami.logger().info("Starting Origami ...");
+
+        PluginServiceImpl.get().enablePlugins();
 
         Origami.logger().info("Successfully started Origami");
     }

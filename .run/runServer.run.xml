@@ -2,9 +2,6 @@
   <configuration default="false" name="runServer" type="Application" factoryName="Application">
     <option name="ALTERNATIVE_JRE_PATH" value="openjdk-25" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <classpathModifications>
-      <entry path="$PROJECT_DIR$/origami-server/src/minecraft/resources" />
-    </classpathModifications>
     <option name="MAIN_CLASS_NAME" value="net.minecraft.server.Main" />
     <module name="origami.origami-server.main" />
     <option name="PROGRAM_PARAMETERS" value="--nogui" />
