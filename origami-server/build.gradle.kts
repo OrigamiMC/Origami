@@ -7,6 +7,7 @@ plugins {
 strata {
     minecraftVersion.set(project.properties["minecraftVersion"].toString())
     sourceDir.set(file("src/minecraft/java").absolutePath)
+    bootstrapJarPath.set(layout.buildDirectory.file("libs/origami-bootstrap-${version}.jar").get().asFile.absolutePath)
 }
 
 sourceSets {

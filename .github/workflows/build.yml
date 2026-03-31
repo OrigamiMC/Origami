@@ -54,8 +54,8 @@ jobs:
       - name: Build server jar
         run: ./gradlew :origami-server:jar
 
-      - name: Build server bundle
+      - name: Build server bundle jar
         run: ./gradlew :origami-server:shadowJar
 
-      - name: Create server jar patch
-        run: ./gradlew :origami-server:createServerJarPatch
+      - name: Create server bootstrap jar
+        run: ./gradlew :origami-server:createBootstrapServerJar

@@ -1,6 +1,6 @@
 plugins {
     id("com.gradleup.shadow") version "9.3.1" apply false
-    id("com.origamimc.strata-workspace") version "1.0.6"
+    id("com.origamimc.strata-workspace") version "1.0.7"
 }
 
 allprojects {
