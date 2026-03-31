@@ -1,13 +1,13 @@
-From 2dc95cb267933c53bd165ff38ae3597716217efd Mon Sep 17 00:00:00 2001
+From d8724b7ed70f7a326fdf8269343380ee67cac84f Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Mon, 23 Mar 2026 20:51:01 +0100
 Subject: [PATCH] Origami server
 
 ---
- net/minecraft/server/Main.java                      |  2 ++
- net/minecraft/server/MinecraftServer.java           | 12 +++++++++++-
- net/minecraft/server/dedicated/DedicatedServer.java |  2 ++
- 3 files changed, 15 insertions(+), 1 deletion(-)
+ net/minecraft/server/Main.java                     |  2 ++
+ net/minecraft/server/MinecraftServer.java          | 14 +++++++++++++-
+ .../server/dedicated/DedicatedServer.java          |  3 +++
+ 3 files changed, 18 insertions(+), 1 deletion(-)
 
 diff --git a/net/minecraft/server/Main.java b/net/minecraft/server/Main.java
 index 2ced268..dfb0218 100644
@@ -23,7 +23,7 @@ index 2ced268..dfb0218 100644
          OptionSpec<Void> nogui = parser.accepts("nogui");
          OptionSpec<Void> initSettings = parser.accepts("initSettings", "Initializes 'server.properties' and 'eula.txt', then quits");
 diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
-index 449cc3b..0fdd6e0 100644
+index 449cc3b..9ce5f4f 100644
 --- a/net/minecraft/server/MinecraftServer.java
 +++ b/net/minecraft/server/MinecraftServer.java
 @@ -192,6 +192,7 @@ import org.jspecify.annotations.Nullable;
@@ -57,7 +57,23 @@ index 449cc3b..0fdd6e0 100644
          this.registries = worldStem.registries();
          if (!this.registries.compositeAccess().lookupOrThrow(Registries.LEVEL_STEM).containsKey(LevelStem.OVERWORLD)) {
              throw new IllegalStateException("Missing Overworld dimension data");
-@@ -1219,7 +1229,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -652,6 +662,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+         }
+ 
+         LOGGER.info("Stopping server");
++        com.origamimc.origami.OrigamiImpl.get().getServer().onServerStopping(); // Origami - origami server
+         this.getConnection().stop();
+         this.isSaving = true;
+         if (this.playerList != null) {
+@@ -700,6 +711,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+         } catch (IOException var4) {
+             LOGGER.error("Failed to unlock level {}", this.storageSource.getLevelId(), var4);
+         }
++        com.origamimc.origami.OrigamiImpl.get().getServer().onServerStopped(); // Origami - origami server
+     }
+ 
+     public String getLocalIp() {
+@@ -1219,7 +1231,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
      }
  
      public String getServerModName() {
@@ -67,10 +83,18 @@ index 449cc3b..0fdd6e0 100644
  
      public ServerClockManager clockManager() {
 diff --git a/net/minecraft/server/dedicated/DedicatedServer.java b/net/minecraft/server/dedicated/DedicatedServer.java
-index ad60537..759ef66 100644
+index ad60537..750b047 100644
 --- a/net/minecraft/server/dedicated/DedicatedServer.java
 +++ b/net/minecraft/server/dedicated/DedicatedServer.java
-@@ -283,6 +283,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
+@@ -225,6 +225,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
+         consoleThread.setUncaughtExceptionHandler(new DefaultUncaughtExceptionHandler(LOGGER));
+         consoleThread.start();
+         LOGGER.info("Starting minecraft server version {}", SharedConstants.getCurrentVersion().name());
++        com.origamimc.origami.OrigamiImpl.get().getServer().onServerStarting(); // Origami - origami server
+         if (Runtime.getRuntime().maxMemory() / 1024L / 1024L < 512L) {
+             LOGGER.warn("To start the server with more ram, launch it as \"java -Xmx1024M -Xms1024M -jar minecraft_server.jar\"");
+         }
+@@ -283,6 +284,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
              long levelNanoTime = Util.getNanos();
              this.services.nameToIdCache().resolveOfflineUsers(!this.usesAuthentication());
              LOGGER.info("Preparing level \"{}\"", this.getLevelIdName());
@@ -78,7 +102,7 @@ index ad60537..759ef66 100644
              this.loadLevel();
              long elapsed = Util.getNanos() - levelNanoTime;
              String time = String.format(Locale.ROOT, "%.3fs", elapsed / 1.0E9);
-@@ -316,6 +317,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
+@@ -316,6 +318,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
  
              this.saveEverything(false, true, true);
              this.notificationManager().serverStarted();

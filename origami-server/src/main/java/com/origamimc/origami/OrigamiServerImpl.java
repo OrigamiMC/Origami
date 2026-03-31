@@ -22,7 +22,14 @@ public class OrigamiServerImpl {
     }
 
     /**
-     * Called when server is started
+     * Called when the server is starting
+     */
+    public void onServerStarting() {
+
+    }
+
+    /**
+     * Called when the server is started
      */
     public void onServerStarted() {
         Origami.logger().info("Starting Origami ...");
@@ -30,6 +37,20 @@ public class OrigamiServerImpl {
         PluginServiceImpl.get().enablePlugins();
 
         Origami.logger().info("Successfully started Origami");
+    }
+
+    /**
+     * Called when the server is stopping
+     */
+    public void onServerStopping() {
+
+    }
+
+    /**
+     * Called when the server is stopped
+     */
+    public void onServerStopped() {
+
     }
 
 }
