@@ -4,6 +4,7 @@ import com.origamimc.origami.api.Origami;
 import com.origamimc.origami.api.plugins.OrigamiPlugin;
 import com.origamimc.origami.api.plugins.PluginManifest;
 import com.origamimc.origami.api.plugins.PluginService;
+import com.origamimc.origami.api.plugins.PluginState;
 import com.origamimc.origami.plugins.builtin.timer.TimerPlugin;
 import de.oliver.fancyanalytics.logger.properties.StringProperty;
 
@@ -49,6 +50,10 @@ public class PluginServiceImpl implements PluginService {
 
     public void enablePlugins() {
         for (OrigamiPlugin plugin : plugins.values()) {
+            if (plugin.getState() != PluginState.LOADED) {
+                continue;
+            }
+
             Origami.logger().info(
                     "Enabling the " + plugin.getManifest().name() + " plugin",
                     StringProperty.of("plugin", plugin.getManifest().name()),
@@ -67,6 +72,10 @@ public class PluginServiceImpl implements PluginService {
 
     public void disablePlugins() {
         for (OrigamiPlugin plugin : plugins.values()) {
+            if (plugin.getState() != PluginState.ENABLED) {
+                continue;
+            }
+
             Origami.logger().info(
                     "Disabling the " + plugin.getManifest().name() + " plugin",
                     StringProperty.of("plugin", plugin.getManifest().name()),
