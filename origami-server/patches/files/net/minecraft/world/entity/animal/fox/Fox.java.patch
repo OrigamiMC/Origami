@@ -9,7 +9,7 @@
      private static final boolean DEFAULT_SLEEPING = false;
      private static final boolean DEFAULT_SITTING = false;
      private static final boolean DEFAULT_CROUCHING = false;
-@@ -427,7 +_,7 @@
+@@ -437,7 +_,7 @@
      protected void readAdditionalSaveData(final ValueInput input) {
          super.readAdditionalSaveData(input);
          this.clearTrusted();

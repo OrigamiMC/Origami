@@ -1,0 +1,39 @@
+--- a/net/minecraft/world/entity/CraftingGrid.java
++++ b/net/minecraft/world/entity/CraftingGrid.java
+@@ -35,6 +_,7 @@
+ import net.minecraft.world.item.crafting.display.SlotDisplayContext;
+ import net.minecraft.world.level.Explosion;
+ import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Block;
+ import net.minecraft.world.level.block.Blocks;
+ import net.minecraft.world.level.block.state.BlockState;
+ import net.minecraft.world.level.entity.EntityTypeTest;
+@@ -425,7 +_,7 @@
+     protected void readAdditionalSaveData(final ValueInput input) {
+         this.setSize(input.getIntOr("size", 3));
+         this.owner = EntityReference.read(input, "owner");
+-        input.<List>read("ingredients", CraftingGrid.IngredientData.codec(this.level()).listOf()).ifPresent(ingredients -> {
++        input.read("ingredients", CraftingGrid.IngredientData.codec(this.level()).listOf()).ifPresent(ingredients -> {
+             int size = this.getSize();
+ 
+             for (int y = 0; y < size; y++) {
+@@ -434,7 +_,7 @@
+                 }
+             }
+         });
+-        input.<List>read("ghosts", SlotDisplay.CODEC.listOf()).ifPresent(ghosts -> {
++        input.read("ghosts", SlotDisplay.CODEC.listOf()).ifPresent(ghosts -> {
+             int size = this.getSize();
+ 
+             for (int y = 0; y < size; y++) {
+@@ -548,8 +_,8 @@
+ 
+         public static final Codec<CraftingGrid.IngredientData> codec(final Level level) {
+             return RecordCodecBuilder.create(
+-                i -> i.group(BlockPos.CODEC.fieldOf("pos").forGetter(ig -> ig.pos), BlockState.CODEC.fieldOf("state").forGetter(ig -> ig.preExistingBlockState))
+-                    .apply(i, (pos, state) -> new CraftingGrid.IngredientData(level, pos, state))
++                    i -> i.group(BlockPos.CODEC.fieldOf("pos").forGetter(ig -> ig.pos), BlockState.CODEC.fieldOf("state").forGetter(ig -> ig.preExistingBlockState))
++                            .apply(i, (pos, state) -> new CraftingGrid.IngredientData(level, pos, state))
+             );
+         }
+ 

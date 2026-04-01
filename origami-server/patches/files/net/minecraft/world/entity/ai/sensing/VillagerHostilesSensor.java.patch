@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/ai/sensing/VillagerHostilesSensor.java
 +++ b/net/minecraft/world/entity/ai/sensing/VillagerHostilesSensor.java
-@@ -7,7 +_,7 @@
+@@ -8,7 +_,7 @@
  import net.minecraft.world.entity.ai.memory.MemoryModuleType;
  
  public class VillagerHostilesSensor extends NearestVisibleLivingEntitySensor {

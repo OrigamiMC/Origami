@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/monster/piglin/PiglinBrute.java
 +++ b/net/minecraft/world/entity/monster/piglin/PiglinBrute.java
-@@ -75,7 +_,7 @@
+@@ -74,7 +_,7 @@
      }
  
      public Brain<PiglinBrute> getBrain() {

@@ -1,15 +1,15 @@
 --- a/net/minecraft/data/recipes/RecipeProvider.java
 +++ b/net/minecraft/data/recipes/RecipeProvider.java
-@@ -62,7 +_,7 @@
-     protected final HolderLookup.Provider registries;
-     private final HolderGetter<Item> items;
+@@ -63,7 +_,7 @@
+     protected final HolderGetter<Item> items;
+     protected final HolderLookup<EntityType<?>> entityTypes;
      protected final RecipeOutput output;
 -    private static final Map<BlockFamily.Variant, RecipeProvider.FamilyCraftingRecipeProvider> SHAPE_BUILDERS = ImmutableMap.builder()
 +    private static final Map<BlockFamily.Variant, RecipeProvider.FamilyCraftingRecipeProvider> SHAPE_BUILDERS = ImmutableMap.<BlockFamily.Variant, RecipeProvider.FamilyCraftingRecipeProvider>builder()
          .put(
              BlockFamily.Variant.BUTTON,
              (RecipeProvider.FamilyCraftingRecipeProvider)(context, result, base) -> context.buttonBuilder(result, Ingredient.of(base))
-@@ -140,7 +_,7 @@
+@@ -141,7 +_,7 @@
              )
          )
          .build();

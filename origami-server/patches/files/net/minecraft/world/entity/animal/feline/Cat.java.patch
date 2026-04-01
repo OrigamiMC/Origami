@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/feline/Cat.java
 +++ b/net/minecraft/world/entity/animal/feline/Cat.java
-@@ -211,7 +_,7 @@
+@@ -213,7 +_,7 @@
      protected void readAdditionalSaveData(final ValueInput input) {
          super.readAdditionalSaveData(input);
          VariantUtils.readVariant(input, Registries.CAT_VARIANT).ifPresent(this::setVariant);

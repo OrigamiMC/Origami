@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/monster/warden/WardenAi.java
 +++ b/net/minecraft/world/entity/monster/warden/WardenAi.java
-@@ -82,18 +_,18 @@
+@@ -83,18 +_,18 @@
  
      private static ActivityData<Warden> initCoreActivity() {
          return ActivityData.create(
@@ -22,7 +22,7 @@
              ImmutableSet.of(Pair.of(MemoryModuleType.ROAR_TARGET, MemoryStatus.VALUE_ABSENT), Pair.of(MemoryModuleType.DIG_COOLDOWN, MemoryStatus.VALUE_ABSENT))
          );
      }
-@@ -105,7 +_,7 @@
+@@ -106,7 +_,7 @@
              ImmutableList.of(
                  SetRoarTarget.create(Warden::getEntityAngryAt),
                  TryToSniff.create(),
@@ -31,7 +31,7 @@
                      ImmutableMap.of(MemoryModuleType.IS_SNIFFING, MemoryStatus.VALUE_ABSENT),
                      ImmutableList.of(Pair.of(RandomStroll.stroll(0.5F), 2), Pair.of(new DoNothing(30, 60), 1))
                  )
-@@ -124,7 +_,7 @@
+@@ -125,7 +_,7 @@
  
      private static ActivityData<Warden> initSniffingActivity() {
          return ActivityData.create(
