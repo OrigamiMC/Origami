@@ -13,6 +13,8 @@ public interface OrigamiServer {
         return Origami.get().getServer();
     }
 
+    long getStartupTime();
+
     Optional<OrigamiPlayer> getPlayerByName(String username);
 
     Optional<OrigamiPlayer> getPlayerByUUID(UUID uuid);

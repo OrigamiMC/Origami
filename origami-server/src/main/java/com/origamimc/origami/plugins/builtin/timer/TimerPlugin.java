@@ -1,10 +1,15 @@
 package com.origamimc.origami.plugins.builtin.timer;
 
+import com.origamimc.origami.OrigamiServerImpl;
 import com.origamimc.origami.api.Origami;
 import com.origamimc.origami.api.player.OrigamiPlayer;
 import com.origamimc.origami.api.plugins.OrigamiPlugin;
 import com.origamimc.origami.api.plugins.PluginManifest;
 import com.origamimc.origami.api.server.OrigamiServer;
+import com.origamimc.origami.player.OrigamiPlayerImpl;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
+import net.minecraft.server.MinecraftServer;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.*;
@@ -35,11 +40,29 @@ public class TimerPlugin extends OrigamiPlugin {
     public void onEnable() {
         Origami.logger().info("Hello world from TimerPlugin");
 
-        executor.schedule(() -> {
+        executor.scheduleAtFixedRate(() -> {
+            long startup = OrigamiServer.get().getStartupTime();
+            long now = System.currentTimeMillis();
+            long passedMillis = now - startup;
+
+            long seconds = (passedMillis / 1000) % 60;
+            long minutes = (passedMillis / (1000 * 60)) % 60;
+            long hours = (passedMillis / (1000 * 60 * 60)) % 60;
+            long days = (passedMillis / (1000 * 60 * 60 * 24)) % 24;
+
+            String formattedTimer = "§a§l";
+            if (days > 0) formattedTimer += days + "d ";
+            if (hours > 0) formattedTimer += hours + "h ";
+            if (minutes > 0) formattedTimer += minutes + "m ";
+            if (seconds > 0) formattedTimer += seconds + "s ";
+
             for (OrigamiPlayer player : OrigamiServer.get().getOnlinePlayers()) {
-                player.sendMessage("§6You entity id is: " + player.getEntityID());
+                player.sendActionBar(formattedTimer);
             }
-        }, 20, TimeUnit.SECONDS);
+
+        }, 0, 1, TimeUnit.SECONDS);
+
+        MinecraftServer.getInstance().notificationManager().registerService(new Listener());
     }
 
     @Override

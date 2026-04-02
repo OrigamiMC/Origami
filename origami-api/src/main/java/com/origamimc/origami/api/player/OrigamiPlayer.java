@@ -12,4 +12,6 @@ public interface OrigamiPlayer {
 
     void sendMessage(String message);
 
+    void sendActionBar(String text);
+
 }

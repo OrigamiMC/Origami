@@ -15,6 +15,7 @@ import java.util.UUID;
 
 public class OrigamiServerImpl implements OrigamiServer {
 
+    private long startupTime;
     private MinecraftServer handle;
 
     /**
@@ -22,6 +23,8 @@ public class OrigamiServerImpl implements OrigamiServer {
      */
     public void onBoot() {
         try {
+            startupTime = System.currentTimeMillis();
+
             PluginServiceImpl.get().loadFromPluginsFolder();
             Origami.logger().info("Scanned all plugins from plugins folder");
         } catch (Exception e) {
@@ -86,6 +89,11 @@ public class OrigamiServerImpl implements OrigamiServer {
         } catch (Exception e) {
             Origami.logger().error("Unexpected exception in onServerStopped", new ThrowableProperty(e));
         }
+    }
+
+    @Override
+    public long getStartupTime() {
+        return startupTime;
     }
 
     @Override

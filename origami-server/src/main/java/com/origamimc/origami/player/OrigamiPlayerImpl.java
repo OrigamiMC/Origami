@@ -2,6 +2,7 @@ package com.origamimc.origami.player;
 
 import com.origamimc.origami.api.player.OrigamiPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.UUID;
@@ -36,5 +37,14 @@ public class OrigamiPlayerImpl implements OrigamiPlayer {
     @Override
     public void sendMessage(String message) {
         handle.sendSystemMessage(Component.literal(message));
+    }
+
+    @Override
+    public void sendActionBar(String text) {
+        handle.connection.send(new ClientboundSetActionBarTextPacket(Component.literal(text)));
+    }
+
+    public ServerPlayer getHandle() {
+        return handle;
     }
 }
