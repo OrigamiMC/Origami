@@ -10,8 +10,12 @@ public class OrigamiPlayerImpl implements OrigamiPlayer {
 
     private final ServerPlayer handle;
 
-    public OrigamiPlayerImpl(ServerPlayer serverPlayer) {
+    private OrigamiPlayerImpl(ServerPlayer serverPlayer) {
         this.handle = serverPlayer;
+    }
+
+    public static OrigamiPlayerImpl of(ServerPlayer serverPlayer) {
+        return new OrigamiPlayerImpl(serverPlayer);
     }
 
     @Override

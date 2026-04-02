@@ -1,7 +1,7 @@
-From d8724b7ed70f7a326fdf8269343380ee67cac84f Mon Sep 17 00:00:00 2001
+From c94dc2a23fc44dc03e55903a58caf3d2119378ca Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Mon, 23 Mar 2026 20:51:01 +0100
-Subject: [PATCH] Origami server
+Subject: [PATCH 1/2] Origami server
 
 ---
  net/minecraft/server/Main.java                     |  2 ++
