@@ -21,4 +21,8 @@ public interface OrigamiServer {
 
     List<OrigamiPlayer> getOnlinePlayers();
 
+    String getMotd();
+
+    void setMotd(String motd);
+
 }

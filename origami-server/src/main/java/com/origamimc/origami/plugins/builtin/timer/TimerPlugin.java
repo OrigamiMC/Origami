@@ -1,18 +1,17 @@
 package com.origamimc.origami.plugins.builtin.timer;
 
-import com.origamimc.origami.OrigamiServerImpl;
 import com.origamimc.origami.api.Origami;
 import com.origamimc.origami.api.player.OrigamiPlayer;
 import com.origamimc.origami.api.plugins.OrigamiPlugin;
 import com.origamimc.origami.api.plugins.PluginManifest;
 import com.origamimc.origami.api.server.OrigamiServer;
-import com.origamimc.origami.player.OrigamiPlayerImpl;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.server.MinecraftServer;
 import org.jspecify.annotations.NonNull;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 
 public class TimerPlugin extends OrigamiPlugin {
 

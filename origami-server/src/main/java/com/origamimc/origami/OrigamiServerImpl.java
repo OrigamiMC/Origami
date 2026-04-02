@@ -122,4 +122,14 @@ public class OrigamiServerImpl implements OrigamiServer {
 
         return onlinePlayers;
     }
+
+    @Override
+    public String getMotd() {
+        return handle.getMotd();
+    }
+
+    @Override
+    public void setMotd(String motd) {
+        handle.setMotd(motd);
+    }
 }
