@@ -54,11 +54,12 @@ public class OrigamiImpl implements Origami {
     }
 
     @Override
-    public PluginService getPluginService() {
-        return pluginService;
-    }
-
     public OrigamiServerImpl getServer() {
         return server;
+    }
+
+    @Override
+    public PluginService getPluginService() {
+        return pluginService;
     }
 }

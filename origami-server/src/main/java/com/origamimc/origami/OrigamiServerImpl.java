@@ -1,10 +1,21 @@
 package com.origamimc.origami;
 
 import com.origamimc.origami.api.Origami;
+import com.origamimc.origami.api.player.OrigamiPlayer;
+import com.origamimc.origami.api.server.OrigamiServer;
 import com.origamimc.origami.plugins.PluginServiceImpl;
 import de.oliver.fancyanalytics.logger.properties.ThrowableProperty;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 
-public class OrigamiServerImpl {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+public class OrigamiServerImpl implements OrigamiServer {
+
+    private MinecraftServer handle;
 
     /**
      * Called right when the server boots up
@@ -23,7 +34,7 @@ public class OrigamiServerImpl {
      */
     public void onPrepareLevels() {
         try {
-
+            handle = MinecraftServer.getInstance();
         } catch (Exception e) {
             Origami.logger().error("Unexpected exception in onPrepareLevels", new ThrowableProperty(e));
         }
@@ -77,4 +88,30 @@ public class OrigamiServerImpl {
         }
     }
 
+    @Override
+    public Optional<OrigamiPlayer> getPlayerByName(String username) {
+        ServerPlayer serverPlayer = handle.getPlayerList().getPlayer(username);
+        return serverPlayer != null ?
+                Optional.of(serverPlayer.getOrigamiPlayer()) :
+                Optional.empty();
+    }
+
+    @Override
+    public Optional<OrigamiPlayer> getPlayerByUUID(UUID uuid) {
+        ServerPlayer serverPlayer = handle.getPlayerList().getPlayer(uuid);
+        return serverPlayer != null ?
+                Optional.of(serverPlayer.getOrigamiPlayer()) :
+                Optional.empty();
+    }
+
+    @Override
+    public List<OrigamiPlayer> getOnlinePlayers() {
+        List<OrigamiPlayer> onlinePlayers = new ArrayList<>();
+
+        for (ServerPlayer serverPlayer : handle.getPlayerList().getPlayers()) {
+            onlinePlayers.add(serverPlayer.getOrigamiPlayer());
+        }
+
+        return onlinePlayers;
+    }
 }
