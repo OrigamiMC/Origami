@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/ai/attributes/DefaultAttributes.java
 +++ b/net/minecraft/world/entity/ai/attributes/DefaultAttributes.java
-@@ -91,7 +_,7 @@
+@@ -92,7 +_,7 @@
  
  public class DefaultAttributes {
      private static final Logger LOGGER = LogUtils.getLogger();

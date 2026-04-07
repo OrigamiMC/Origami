@@ -1,0 +1,11 @@
+--- a/net/minecraft/data/loot/packs/VanillaBlockLoot.java
++++ b/net/minecraft/data/loot/packs/VanillaBlockLoot.java
+@@ -63,7 +_,7 @@
+ 
+ public class VanillaBlockLoot extends BlockLootSubProvider {
+     private static final float[] JUNGLE_LEAVES_SAPLING_CHANGES = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
+-    private static final Set<Item> EXPLOSION_RESISTANT = ImmutableList.builder()
++    private static final Set<Item> EXPLOSION_RESISTANT = ImmutableList.<Block>builder()
+         .add(
+             new Block[]{
+                 Blocks.DRAGON_EGG,
