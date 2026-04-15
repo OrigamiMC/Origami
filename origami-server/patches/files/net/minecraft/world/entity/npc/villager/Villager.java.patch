@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/npc/villager/Villager.java
 +++ b/net/minecraft/world/entity/npc/villager/Villager.java
-@@ -172,13 +_,13 @@
+@@ -173,13 +_,13 @@
      );
      public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<Villager, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
          MemoryModuleType.HOME,
@@ -18,7 +18,7 @@
      );
  
      public Villager(final EntityType<? extends Villager> type, final Level level) {
-@@ -199,7 +_,7 @@
+@@ -200,7 +_,7 @@
      }
  
      public Brain<Villager> getBrain() {

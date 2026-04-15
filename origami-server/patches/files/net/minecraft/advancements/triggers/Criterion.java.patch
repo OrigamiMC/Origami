@@ -1,6 +1,6 @@
---- a/net/minecraft/advancements/Criterion.java
-+++ b/net/minecraft/advancements/Criterion.java
-@@ -6,7 +_,7 @@
+--- a/net/minecraft/advancements/triggers/Criterion.java
++++ b/net/minecraft/advancements/triggers/Criterion.java
+@@ -7,7 +_,7 @@
  
  public record Criterion<T extends CriterionTriggerInstance>(CriterionTrigger<T> trigger, T triggerInstance) {
      private static final MapCodec<Criterion<?>> MAP_CODEC = ExtraCodecs.dispatchOptionalValue(

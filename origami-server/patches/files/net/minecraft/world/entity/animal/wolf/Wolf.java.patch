@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/wolf/Wolf.java
 +++ b/net/minecraft/world/entity/animal/wolf/Wolf.java
-@@ -235,7 +_,7 @@
+@@ -236,7 +_,7 @@
          VariantUtils.readVariant(input, Registries.WOLF_VARIANT).ifPresent(this::setVariant);
          this.setCollarColor(input.<DyeColor>read("CollarColor", DyeColor.LEGACY_ID_CODEC).orElse(DEFAULT_COLLAR_COLOR));
          this.readPersistentAngerSaveData(this.level(), input);

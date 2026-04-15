@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/camel/Camel.java
 +++ b/net/minecraft/world/entity/animal/camel/Camel.java
-@@ -144,7 +_,7 @@
+@@ -145,7 +_,7 @@
      }
  
      public Brain<Camel> getBrain() {

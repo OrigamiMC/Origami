@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/armadillo/Armadillo.java
 +++ b/net/minecraft/world/entity/animal/armadillo/Armadillo.java
-@@ -126,7 +_,7 @@
+@@ -127,7 +_,7 @@
      }
  
      public Brain<Armadillo> getBrain() {

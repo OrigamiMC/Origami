@@ -24,7 +24,7 @@
 -                new RunOne(
 +                new RunOne<>(
                      ImmutableList.of(
-                         Pair.of(SetEntityLookTarget.create(EntityType.PIGLIN, 8.0F), 1),
+                         Pair.of(SetEntityLookTarget.create(EntityTypes.PIGLIN, 8.0F), 1),
                          Pair.of(RandomStroll.stroll(0.6F, 2, 1), 1),
 @@ -248,7 +_,7 @@
                  BehaviorBuilder.sequence(

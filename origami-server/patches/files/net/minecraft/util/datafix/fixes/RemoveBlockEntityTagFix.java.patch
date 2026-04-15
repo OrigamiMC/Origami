@@ -1,0 +1,16 @@
+--- a/net/minecraft/util/datafix/fixes/RemoveBlockEntityTagFix.java
++++ b/net/minecraft/util/datafix/fixes/RemoveBlockEntityTagFix.java
+@@ -94,11 +_,11 @@
+ 
+     private TypeRewriteRule createChunkBlockEntityRemover(final OpticFinder<String> blockEntityIdF) {
+         Type<?> chunkType = this.getInputSchema().getType(References.CHUNK);
+-        OpticFinder<? extends List<?>> blockEntitiesF = chunkType.findField("block_entities");
++        OpticFinder<? extends List<?>> blockEntitiesF = (OpticFinder<? extends List<?>>) chunkType.findField("block_entities");
+         Type<?> blockEntityElementsType = ((ListType)blockEntitiesF.type()).getElement();
+         OpticFinder<?> blockEntityTypeFinder = this.getInputSchema().getType(References.BLOCK_ENTITY).finder();
+         Type<?> chunkTypeOut = this.getOutputSchema().getType(References.CHUNK);
+-        Type<List<?>> blockEntitiesTypeOut = chunkType.findField("block_entities").type();
++        Type<List<?>> blockEntitiesTypeOut = (Type<List<?>>) chunkType.findField("block_entities").type();
+         return this.fixTypeEverywhereTyped(
+             "BlockEntityChunkRemover" + this.getOutputSchema().getVersionKey(),
+             chunkType,

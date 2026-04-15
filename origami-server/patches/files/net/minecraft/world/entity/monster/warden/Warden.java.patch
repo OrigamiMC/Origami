@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/monster/warden/Warden.java
 +++ b/net/minecraft/world/entity/monster/warden/Warden.java
-@@ -355,7 +_,7 @@
+@@ -356,7 +_,7 @@
      }
  
      public Brain<Warden> getBrain() {
@@ -9,7 +9,7 @@
      }
  
      public void updateDynamicGameEventListener(final BiConsumer<DynamicGameEventListener<?>, ServerLevel> action) {
-@@ -514,9 +_,6 @@
+@@ -515,9 +_,6 @@
              protected PathFinder createPathFinder(final int maxVisitedNodes) {
                  this.nodeEvaluator = new WalkNodeEvaluator();
                  return new PathFinder(this.nodeEvaluator, maxVisitedNodes) {

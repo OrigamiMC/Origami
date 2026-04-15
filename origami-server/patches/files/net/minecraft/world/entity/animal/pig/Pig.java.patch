@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/pig/Pig.java
 +++ b/net/minecraft/world/entity/animal/pig/Pig.java
-@@ -117,7 +_,7 @@
+@@ -118,7 +_,7 @@
      protected void readAdditionalSaveData(final ValueInput input) {
          super.readAdditionalSaveData(input);
          VariantUtils.readVariant(input, Registries.PIG_VARIANT).ifPresent(this::setVariant);

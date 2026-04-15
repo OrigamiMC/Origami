@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/cow/Cow.java
 +++ b/net/minecraft/world/entity/animal/cow/Cow.java
-@@ -53,7 +_,7 @@
+@@ -54,7 +_,7 @@
      protected void readAdditionalSaveData(final ValueInput input) {
          super.readAdditionalSaveData(input);
          VariantUtils.readVariant(input, Registries.COW_VARIANT).ifPresent(this::setVariant);

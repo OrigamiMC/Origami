@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/block/HopperBlock.java
 +++ b/net/minecraft/world/level/block/HopperBlock.java
-@@ -53,7 +_,7 @@
+@@ -54,7 +_,7 @@
          this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.DOWN).setValue(ENABLED, true));
          VoxelShape inside = Block.column(12.0, 11.0, 16.0);
          this.shapes = this.makeShapes(inside);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/allay/Allay.java
 +++ b/net/minecraft/world/entity/animal/allay/Allay.java
-@@ -116,7 +_,7 @@
+@@ -117,7 +_,7 @@
      }
  
      public Brain<Allay> getBrain() {

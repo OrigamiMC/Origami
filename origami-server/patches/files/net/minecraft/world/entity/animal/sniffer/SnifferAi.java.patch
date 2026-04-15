@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/sniffer/SnifferAi.java
 +++ b/net/minecraft/world/entity/animal/sniffer/SnifferAi.java
-@@ -56,7 +_,7 @@
+@@ -57,7 +_,7 @@
      }
  
      private static ActivityData<Sniffer> initCoreActivity() {
