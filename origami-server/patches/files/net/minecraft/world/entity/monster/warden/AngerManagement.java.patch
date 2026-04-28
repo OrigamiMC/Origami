@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/monster/warden/AngerManagement.java
 +++ b/net/minecraft/world/entity/monster/warden/AngerManagement.java
-@@ -67,10 +_,8 @@
+@@ -66,10 +_,8 @@
  
      private List<Pair<UUID, Integer>> createUuidAngerPairs() {
          return Streams.concat(

@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/nautilus/Nautilus.java
 +++ b/net/minecraft/world/entity/animal/nautilus/Nautilus.java
-@@ -34,7 +_,7 @@
+@@ -42,7 +_,7 @@
      }
  
      public Brain<Nautilus> getBrain() {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/levelgen/flat/FlatLevelGeneratorSettings.java
 +++ b/net/minecraft/world/level/levelgen/flat/FlatLevelGeneratorSettings.java
-@@ -33,7 +_,7 @@
+@@ -34,7 +_,7 @@
  
  public class FlatLevelGeneratorSettings {
      private static final Logger LOGGER = LogUtils.getLogger();

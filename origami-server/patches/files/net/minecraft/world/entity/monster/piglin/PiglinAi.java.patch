@@ -17,16 +17,16 @@
                  RememberIfHoglinWasKilled.create(),
                  EraseMemoryIf.create(PiglinAi::isNearZombified, MemoryModuleType.ATTACK_TARGET)
              ),
-@@ -199,7 +_,7 @@
-                     body -> body instanceof Piglin && !body.isDancing(), GoToTargetLocation.create(MemoryModuleType.CELEBRATE_LOCATION, 2, 1.0F)
-                 ),
+@@ -197,7 +_,7 @@
+                 StartAttacking.create((level, piglin) -> piglin.isAdult(), PiglinAi::findNearestValidAttackTarget),
+                 BehaviorBuilder.triggerIf(piglin -> !piglin.isDancing(), GoToTargetLocation.create(MemoryModuleType.CELEBRATE_LOCATION, 2, 1.0F)),
                  BehaviorBuilder.triggerIf(Piglin::isDancing, GoToTargetLocation.create(MemoryModuleType.CELEBRATE_LOCATION, 4, 0.6F)),
 -                new RunOne(
 +                new RunOne<>(
                      ImmutableList.of(
                          Pair.of(SetEntityLookTarget.create(EntityTypes.PIGLIN, 8.0F), 1),
                          Pair.of(RandomStroll.stroll(0.6F, 2, 1), 1),
-@@ -248,7 +_,7 @@
+@@ -246,7 +_,7 @@
                  BehaviorBuilder.sequence(
                      BehaviorBuilder.triggerIf(Entity::isPassenger),
                      TriggerGate.triggerOneShuffled(
@@ -35,7 +35,7 @@
                      )
                  ),
                  DismountOrSkipMounting.create(8, PiglinAi::wantsToStopRiding)
-@@ -266,7 +_,7 @@
+@@ -264,7 +_,7 @@
      }
  
      private static RunOne<LivingEntity> createIdleLookBehaviors() {

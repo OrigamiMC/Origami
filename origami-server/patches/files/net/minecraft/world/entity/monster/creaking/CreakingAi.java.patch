@@ -9,8 +9,8 @@
              }
          }, new LookAtTargetSink(45, 90), new MoveToTargetSink()));
      }
-@@ -45,7 +_,7 @@
-                     (level, mob) -> mob.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)
+@@ -44,7 +_,7 @@
+                     (level, mob) -> mob.isActive(), (level, mob) -> mob.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)
                  ),
                  SetEntityLookTargetSometimes.create(8.0F, UniformInt.of(30, 60)),
 -                new RunOne(

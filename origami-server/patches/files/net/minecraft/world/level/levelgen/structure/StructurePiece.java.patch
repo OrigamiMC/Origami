@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/levelgen/structure/StructurePiece.java
 +++ b/net/minecraft/world/level/levelgen/structure/StructurePiece.java
-@@ -42,7 +_,7 @@
+@@ -41,7 +_,7 @@
      private Rotation rotation;
      protected int genDepth;
      private final StructurePieceType type;

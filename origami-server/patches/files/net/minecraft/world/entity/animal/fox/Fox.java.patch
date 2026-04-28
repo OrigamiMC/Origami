@@ -1,15 +1,15 @@
 --- a/net/minecraft/world/entity/animal/fox/Fox.java
 +++ b/net/minecraft/world/entity/animal/fox/Fox.java
-@@ -130,7 +_,7 @@
-     private static final Predicate<Entity> AVOID_PLAYERS = entity -> !entity.isDiscrete() && EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(entity);
-     private static final int MIN_TICKS_BEFORE_EAT = 600;
-     private static final EntityDimensions BABY_DIMENSIONS = EntityTypes.FOX.getDimensions().scale(0.6F).withEyeHeight(0.2975F);
+@@ -136,7 +_,7 @@
+         .scale(0.6F)
+         .withEyeHeight(0.34375F)
+         .withAttachments(EntityAttachments.builder().attach(EntityAttachment.PASSENGER, 0.0F, 0.375F, 0.0F));
 -    private static final Codec<List<EntityReference<LivingEntity>>> TRUSTED_LIST_CODEC = EntityReference.codec().listOf();
 +    private static final Codec<List<EntityReference<LivingEntity>>> TRUSTED_LIST_CODEC = EntityReference.<LivingEntity>codec().listOf();
      private static final boolean DEFAULT_SLEEPING = false;
      private static final boolean DEFAULT_SITTING = false;
      private static final boolean DEFAULT_CROUCHING = false;
-@@ -428,7 +_,7 @@
+@@ -434,7 +_,7 @@
      protected void readAdditionalSaveData(final ValueInput input) {
          super.readAdditionalSaveData(input);
          this.clearTrusted();

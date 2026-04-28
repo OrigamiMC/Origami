@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/goat/Goat.java
 +++ b/net/minecraft/world/entity/animal/goat/Goat.java
-@@ -153,7 +_,7 @@
+@@ -158,7 +_,7 @@
      }
  
      public Brain<Goat> getBrain() {
