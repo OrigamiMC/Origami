@@ -1,6 +1,6 @@
 --- a/net/minecraft/nbt/NbtOps.java
 +++ b/net/minecraft/nbt/NbtOps.java
-@@ -255,7 +_,7 @@
+@@ -259,7 +_,7 @@
      }
  
      public DataResult<Consumer<BiConsumer<Tag, Tag>>> getMapEntries(final Tag input) {
@@ -9,7 +9,7 @@
              for (Entry<String, Tag> entry : tag.entrySet()) {
                  c.accept(this.createString(entry.getKey()), entry.getValue());
              }
-@@ -313,7 +_,7 @@
+@@ -317,7 +_,7 @@
      }
  
      public DataResult<ByteBuffer> getByteBuffer(final Tag input) {
@@ -18,7 +18,7 @@
      }
  
      public Tag createByteList(final ByteBuffer input) {
-@@ -324,7 +_,7 @@
+@@ -328,7 +_,7 @@
      }
  
      public DataResult<IntStream> getIntStream(final Tag input) {
@@ -27,7 +27,7 @@
      }
  
      public Tag createIntList(final IntStream input) {
-@@ -332,7 +_,7 @@
+@@ -336,7 +_,7 @@
      }
  
      public DataResult<LongStream> getLongStream(final Tag input) {

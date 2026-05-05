@@ -1,4 +1,4 @@
-From c42f5cb2652ee6f2884c5ae0f7b268b48ac180da Mon Sep 17 00:00:00 2001
+From eac7ff1dfe7e6095aeedfd8a5af6cf601689a028 Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Thu, 2 Apr 2026 21:40:03 +0200
 Subject: [PATCH 2/2] Origami entities
@@ -8,7 +8,7 @@ Subject: [PATCH 2/2] Origami entities
  1 file changed, 8 insertions(+)
 
 diff --git a/net/minecraft/server/level/ServerPlayer.java b/net/minecraft/server/level/ServerPlayer.java
-index 7d401fd..9c94979 100644
+index 9b46622..4f25084 100644
 --- a/net/minecraft/server/level/ServerPlayer.java
 +++ b/net/minecraft/server/level/ServerPlayer.java
 @@ -228,6 +228,7 @@ public class ServerPlayer extends Player {
