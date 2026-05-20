@@ -9,7 +9,7 @@
          .put(
              BlockFamily.Variant.BUTTON,
              (RecipeProvider.FamilyCraftingRecipeProvider)(context, result, base) -> context.buttonBuilder(result, Ingredient.of(base))
-@@ -140,7 +_,7 @@
+@@ -148,7 +_,7 @@
              )
          )
          .build();

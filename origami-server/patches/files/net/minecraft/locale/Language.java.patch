@@ -8,7 +8,7 @@
  import net.minecraft.util.GsonHelper;
  import net.minecraft.util.StringDecomposer;
  import org.slf4j.Logger;
-@@ -53,7 +_,7 @@
+@@ -54,7 +_,7 @@
  
              public FormattedCharSequence getVisualOrder(final FormattedText logicalOrderText) {
                  return outputx -> logicalOrderText.visit(

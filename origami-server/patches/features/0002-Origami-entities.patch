@@ -1,4 +1,4 @@
-From eac7ff1dfe7e6095aeedfd8a5af6cf601689a028 Mon Sep 17 00:00:00 2001
+From c7373876e10e4b58089416480f60904d6dfaf21a Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Thu, 2 Apr 2026 21:40:03 +0200
 Subject: [PATCH 2/2] Origami entities
@@ -8,7 +8,7 @@ Subject: [PATCH 2/2] Origami entities
  1 file changed, 8 insertions(+)
 
 diff --git a/net/minecraft/server/level/ServerPlayer.java b/net/minecraft/server/level/ServerPlayer.java
-index 9b46622..4f25084 100644
+index f05212f..707594b 100644
 --- a/net/minecraft/server/level/ServerPlayer.java
 +++ b/net/minecraft/server/level/ServerPlayer.java
 @@ -228,6 +228,7 @@ public class ServerPlayer extends Player {
@@ -19,7 +19,7 @@ index 9b46622..4f25084 100644
      public ServerGamePacketListenerImpl connection;
      private final MinecraftServer server;
      public final ServerPlayerGameMode gameMode;
-@@ -369,6 +370,7 @@ public class ServerPlayer extends Player {
+@@ -371,6 +372,7 @@ public class ServerPlayer extends Player {
  
      public ServerPlayer(final MinecraftServer server, final ServerLevel level, final GameProfile gameProfile, final ClientInformation clientInformation) {
          super(level, gameProfile);
@@ -27,7 +27,7 @@ index 9b46622..4f25084 100644
          this.server = server;
          this.textFilter = server.createTextFilterForPlayer(this);
          this.gameMode = server.createGameModeForPlayer(this);
-@@ -380,6 +382,12 @@ public class ServerPlayer extends Player {
+@@ -382,6 +384,12 @@ public class ServerPlayer extends Player {
          this.object = null;
      }
  
