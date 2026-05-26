@@ -1,4 +1,4 @@
-From 1d3f94ff472752fb8f56c02fc6951958ca29e92b Mon Sep 17 00:00:00 2001
+From 77f9f84336c5b3fa8e62bbfe0d4b6b83752fb428 Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Mon, 23 Mar 2026 20:51:01 +0100
 Subject: [PATCH 1/2] Origami server
@@ -23,7 +23,7 @@ index ce18ba7..1e270dd 100644
          OptionSpec<Void> nogui = parser.accepts("nogui");
          OptionSpec<Void> initSettings = parser.accepts("initSettings", "Initializes 'server.properties' and 'eula.txt', then quits");
 diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
-index a5972cf..3cd000f 100644
+index ee7c097..337d229 100644
 --- a/net/minecraft/server/MinecraftServer.java
 +++ b/net/minecraft/server/MinecraftServer.java
 @@ -190,6 +190,7 @@ import org.jspecify.annotations.Nullable;
@@ -83,7 +83,7 @@ index a5972cf..3cd000f 100644
  
      public ServerClockManager clockManager() {
 diff --git a/net/minecraft/server/dedicated/DedicatedServer.java b/net/minecraft/server/dedicated/DedicatedServer.java
-index 2d15bea..ffa2f20 100644
+index 54817b2..9573498 100644
 --- a/net/minecraft/server/dedicated/DedicatedServer.java
 +++ b/net/minecraft/server/dedicated/DedicatedServer.java
 @@ -186,6 +186,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface
