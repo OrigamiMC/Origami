@@ -1,4 +1,4 @@
-From 5b50f38165c8d72e38f2be17f0f2b62e10b79faa Mon Sep 17 00:00:00 2001
+From 0ed3685ec8162061b6fa4e4554f15529881e6aef Mon Sep 17 00:00:00 2001
 From: Oliver <oschi1303@gmail.com>
 Date: Thu, 2 Apr 2026 21:40:03 +0200
 Subject: [PATCH 2/2] Origami entities
@@ -8,10 +8,10 @@ Subject: [PATCH 2/2] Origami entities
  1 file changed, 8 insertions(+)
 
 diff --git a/net/minecraft/server/level/ServerPlayer.java b/net/minecraft/server/level/ServerPlayer.java
-index f05212f..707594b 100644
+index 161e808..bd8661d 100644
 --- a/net/minecraft/server/level/ServerPlayer.java
 +++ b/net/minecraft/server/level/ServerPlayer.java
-@@ -228,6 +228,7 @@ public class ServerPlayer extends Player {
+@@ -229,6 +229,7 @@ public class ServerPlayer extends Player {
      );
      private static final boolean DEFAULT_SEEN_CREDITS = false;
      private static final boolean DEFAULT_SPAWN_EXTRA_PARTICLES_ON_FALL = false;
@@ -19,7 +19,7 @@ index f05212f..707594b 100644
      public ServerGamePacketListenerImpl connection;
      private final MinecraftServer server;
      public final ServerPlayerGameMode gameMode;
-@@ -371,6 +372,7 @@ public class ServerPlayer extends Player {
+@@ -372,6 +373,7 @@ public class ServerPlayer extends Player {
  
      public ServerPlayer(final MinecraftServer server, final ServerLevel level, final GameProfile gameProfile, final ClientInformation clientInformation) {
          super(level, gameProfile);
@@ -27,7 +27,7 @@ index f05212f..707594b 100644
          this.server = server;
          this.textFilter = server.createTextFilterForPlayer(this);
          this.gameMode = server.createGameModeForPlayer(this);
-@@ -382,6 +384,12 @@ public class ServerPlayer extends Player {
+@@ -383,6 +385,12 @@ public class ServerPlayer extends Player {
          this.object = null;
      }
  
