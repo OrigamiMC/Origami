@@ -1,24 +1,27 @@
 --- a/net/minecraft/world/entity/npc/villager/Villager.java
 +++ b/net/minecraft/world/entity/npc/villager/Villager.java
-@@ -173,13 +_,13 @@
+@@ -170,15 +_,15 @@
+             return activities;
+         }
      );
-     public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<Villager, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
+-    public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<Villager, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.of(
++    public static final Map<MemoryModuleType<GlobalPos>, BiPredicate<Villager, Holder<PoiType>>> POI_MEMORIES = ImmutableMap.<MemoryModuleType<GlobalPos>, BiPredicate<Villager, Holder<PoiType>>>of(
          MemoryModuleType.HOME,
 -        (BiPredicate<Villager, Holder>)(villager, poiType) -> poiType.is(PoiTypes.HOME),
-+        (villager, poiType) -> poiType.is(PoiTypes.HOME),
++        (BiPredicate<Villager, Holder<PoiType>>)(villager, poiType) -> poiType.is(PoiTypes.HOME),
          MemoryModuleType.JOB_SITE,
 -        (BiPredicate<Villager, Holder>)(villager, poiType) -> villager.getVillagerData().profession().value().heldJobSite().test(poiType),
-+        (villager, poiType) -> villager.getVillagerData().profession().value().heldJobSite().test(poiType),
++        (BiPredicate<Villager, Holder<PoiType>>)(villager, poiType) -> villager.getVillagerData().profession().value().heldJobSite().test(poiType),
          MemoryModuleType.POTENTIAL_JOB_SITE,
 -        (BiPredicate<Villager, Holder>)(villager, poiType) -> VillagerProfession.ALL_ACQUIRABLE_JOBS.test(poiType),
-+        (villager, poiType) -> VillagerProfession.ALL_ACQUIRABLE_JOBS.test(poiType),
++        (BiPredicate<Villager, Holder<PoiType>>)(villager, poiType) -> VillagerProfession.ALL_ACQUIRABLE_JOBS.test(poiType),
          MemoryModuleType.MEETING_POINT,
 -        (BiPredicate<Villager, Holder>)(villager, poiType) -> poiType.is(PoiTypes.MEETING)
-+        (villager, poiType) -> poiType.is(PoiTypes.MEETING)
++        (BiPredicate<Villager, Holder<PoiType>>)(villager, poiType) -> poiType.is(PoiTypes.MEETING)
      );
  
-     public Villager(final EntityType<? extends Villager> type, final Level level) {
-@@ -200,7 +_,7 @@
+     public Villager(final EntityType<? extends Villager> entityType, final Level level) {
+@@ -190,7 +_,7 @@
      }
  
      public Brain<Villager> getBrain() {

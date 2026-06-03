@@ -1,6 +1,6 @@
 --- a/net/minecraft/util/Util.java
 +++ b/net/minecraft/util/Util.java
-@@ -646,7 +_,7 @@
+@@ -660,7 +_,7 @@
      public static <K extends Enum<K>, V> Map<K, V> makeEnumMap(final Class<K> keyType, final Function<K, V> function) {
          EnumMap<K, V> map = new EnumMap<>(keyType);
  
@@ -9,7 +9,7 @@
              map.put(key, function.apply(key));
          }
  
-@@ -1166,15 +_,15 @@
+@@ -1180,15 +_,15 @@
      }
  
      public static <T> List<T> copyAndAdd(final List<T> list, final T element) {
@@ -28,7 +28,7 @@
      }
  
      public static <T> List<T> join(final List<T> first, final List<T> second) {
-@@ -1201,7 +_,7 @@
+@@ -1215,7 +_,7 @@
      }
  
      public static <K, V> Map<K, V> copyAndPut(final Map<K, V> map, final K key, final V value) {
