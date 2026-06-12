@@ -8,7 +8,7 @@
  import net.minecraft.network.chat.CommonComponents;
  import net.minecraft.network.chat.Component;
  import net.minecraft.network.chat.ComponentSerialization;
-@@ -2188,7 +_,7 @@
+@@ -2192,7 +_,7 @@
                  this.hasVisualFire = input.getBooleanOr("HasVisualFire", false);
                  this.customData = input.<CustomData>read("data", CustomData.CODEC).orElse(CustomData.EMPTY);
                  this.tags.clear();
