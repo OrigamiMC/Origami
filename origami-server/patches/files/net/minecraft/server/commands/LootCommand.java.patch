@@ -1,6 +1,6 @@
 --- a/net/minecraft/server/commands/LootCommand.java
 +++ b/net/minecraft/server/commands/LootCommand.java
-@@ -58,7 +_,7 @@
+@@ -69,7 +_,7 @@
      public static void register(final CommandDispatcher<CommandSourceStack> dispatcher, final CommandBuildContext context) {
          dispatcher.register(
              addTargets(

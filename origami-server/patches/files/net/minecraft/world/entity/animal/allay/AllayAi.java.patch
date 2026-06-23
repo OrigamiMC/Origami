@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/animal/allay/AllayAi.java
 +++ b/net/minecraft/world/entity/animal/allay/AllayAi.java
-@@ -63,8 +_,8 @@
+@@ -67,8 +_,8 @@
              Activity.CORE,
              0,
              ImmutableList.of(
@@ -11,8 +11,8 @@
                  new LookAtTargetSink(45, 90),
                  new MoveToTargetSink(),
                  new CountDownCooldownTicks(MemoryModuleType.LIKED_NOTEBLOCK_COOLDOWN_TICKS),
-@@ -82,7 +_,7 @@
-                 new GoAndGiveItemsToTarget<>(AllayAi::getItemDepositPosition, 2.25F, 20, AllayAi::onItemThrown),
+@@ -88,7 +_,7 @@
+                 ),
                  StayCloseToTarget.create(AllayAi::getItemDepositPosition, Predicate.not(AllayAi::hasWantedItem), 4, 16, 2.25F),
                  SetEntityLookTargetSometimes.create(6.0F, UniformInt.of(30, 60)),
 -                new RunOne(

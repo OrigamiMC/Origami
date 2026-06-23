@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/levelgen/blending/BlendingData.java
 +++ b/net/minecraft/world/level/levelgen/blending/BlendingData.java
-@@ -397,7 +_,7 @@
+@@ -403,7 +_,7 @@
  
      public record Packed(int minSection, int maxSection, Optional<double[]> heights) {
          private static final Codec<double[]> DOUBLE_ARRAY_CODEC = Codec.DOUBLE.listOf().xmap(Doubles::toArray, Doubles::asList);

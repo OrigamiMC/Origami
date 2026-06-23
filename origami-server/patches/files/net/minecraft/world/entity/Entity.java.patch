@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/Entity.java
 +++ b/net/minecraft/world/entity/Entity.java
-@@ -53,6 +_,7 @@
+@@ -54,6 +_,7 @@
  import net.minecraft.core.component.DataComponents;
  import net.minecraft.core.particles.BlockParticleOption;
  import net.minecraft.core.particles.ParticleTypes;
@@ -8,7 +8,7 @@
  import net.minecraft.network.chat.CommonComponents;
  import net.minecraft.network.chat.Component;
  import net.minecraft.network.chat.ComponentSerialization;
-@@ -2192,7 +_,7 @@
+@@ -2198,7 +_,7 @@
                  this.hasVisualFire = input.getBooleanOr("HasVisualFire", false);
                  this.customData = input.<CustomData>read("data", CustomData.CODEC).orElse(CustomData.EMPTY);
                  this.tags.clear();

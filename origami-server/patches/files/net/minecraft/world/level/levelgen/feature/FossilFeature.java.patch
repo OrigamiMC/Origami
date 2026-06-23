@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/feature/FossilFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/FossilFeature.java
+@@ -34,7 +_,7 @@
+     Holder<StructureProcessorList> overlayProcessors,
+     int maxEmptyCornersAllowed
+ ) implements Feature {
+-    public static final MapCodec<FossilFeature> CODEC = RecordCodecBuilder.mapCodec(
++    public static final MapCodec<FossilFeature> CODEC = RecordCodecBuilder.<FossilFeature>mapCodec(
+             i -> i.group(
+                     ExtraCodecs.nonEmptyList(Identifier.CODEC.listOf()).fieldOf("fossil_structures").forGetter(FossilFeature::fossilStructures),
+                     ExtraCodecs.nonEmptyList(Identifier.CODEC.listOf()).fieldOf("overlay_structures").forGetter(FossilFeature::overlayStructures),

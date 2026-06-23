@@ -47,6 +47,26 @@ public class Listener implements NotificationService {
     }
 
     @Override
+    public void worldUpgradeStarted() {
+
+    }
+
+    @Override
+    public void worldUpgradeProgress(float progressPercentage) {
+
+    }
+
+    @Override
+    public void worldUpgradeFinished() {
+
+    }
+
+    @Override
+    public void worldUpgradeFailed(String reason) {
+
+    }
+
+    @Override
     public void playerOped(@NonNull ServerOpListEntry operator) {
 
     }
